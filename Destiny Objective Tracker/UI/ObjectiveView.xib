@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ObjectiveView" customModule="Destiny_Objective_Tracker" customModuleProvider="target">
+            <connections>
+                <outlet property="completionBox" destination="deN-W2-Doe" id="Oeq-wl-yyK"/>
+                <outlet property="container" destination="iN0-l3-epB" id="0YE-gs-Ab6"/>
+                <outlet property="descriptionLbl" destination="eHm-H5-rME" id="Hhb-f7-fLH"/>
+                <outlet property="progressBar" destination="kd4-Kk-o5M" id="smR-LB-502"/>
+                <outlet property="progressLbl" destination="5YN-7e-YZN" id="BC2-f0-0F8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="35"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd4-Kk-o5M" customClass="ProgressBar" customModule="Destiny_Objective_Tracker" customModuleProvider="target">
+                    <rect key="frame" x="40" y="0.0" width="368" height="35"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="progressValue">
+                            <real key="value" value="45"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barColor">
+                            <color key="value" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="trackPadding">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="barThickness">
+                            <real key="value" value="35"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHm-H5-rME">
+                    <rect key="frame" x="45" y="9" width="280" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YN-7e-YZN">
+                    <rect key="frame" x="358" y="8.5" width="32" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deN-W2-Doe" customClass="CompletionBox" customModule="Destiny_Objective_Tracker" customModuleProvider="target">
+                    <rect key="frame" x="10" y="7.5" width="20" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="aHq-UA-eUE"/>
+                        <constraint firstAttribute="width" constant="20" id="jbF-B5-akR"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="completed" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="deN-W2-Doe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="E43-F8-wAS"/>
+                <constraint firstItem="eHm-H5-rME" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="45" id="IgG-Lg-931"/>
+                <constraint firstItem="eHm-H5-rME" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MLG-44-ZWM"/>
+                <constraint firstItem="kd4-Kk-o5M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ray-Kv-npC"/>
+                <constraint firstItem="kd4-Kk-o5M" firstAttribute="leading" secondItem="deN-W2-Doe" secondAttribute="leading" constant="30" id="USZ-9Y-jVO"/>
+                <constraint firstItem="deN-W2-Doe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="YoJ-5K-67y"/>
+                <constraint firstItem="5YN-7e-YZN" firstAttribute="leading" secondItem="kd4-Kk-o5M" secondAttribute="trailing" constant="-50" id="aRK-Sn-doi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eHm-H5-rME" secondAttribute="trailing" constant="75" id="ap4-x3-foK"/>
+                <constraint firstItem="5YN-7e-YZN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bCE-LK-33s"/>
+                <constraint firstItem="kd4-Kk-o5M" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="sbU-Ic-gZr"/>
+                <constraint firstAttribute="bottom" secondItem="kd4-Kk-o5M" secondAttribute="bottom" id="vap-rB-G7O"/>
+                <constraint firstItem="5YN-7e-YZN" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-10" id="yei-dq-45D"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="60" y="-210.49475262368819"/>
+        </view>
+    </objects>
+</document>
