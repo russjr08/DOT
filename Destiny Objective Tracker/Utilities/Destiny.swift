@@ -85,6 +85,10 @@ public class Destiny {
         enum CodingKeys: String, CodingKey {
             case rewards = "value"
         }
+
+        public enum Rarity {
+            case EXOTIC, LEGENDARY, UNCOMMON, RARE
+        }
         
         init(from json: [String: Any]) {
             self.itemHash = json["itemHash"] as? Int

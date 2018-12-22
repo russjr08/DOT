@@ -205,16 +205,25 @@
                         <outlet property="itemTable" destination="Dbe-C0-TxD" id="2St-Jq-GXv"/>
                         <outlet property="statusButton" destination="hrF-o3-KNB" id="wbI-sM-STe"/>
                         <outlet property="toolbar" destination="nDu-RU-dkY" id="N2z-Ra-grz"/>
+                        <segue destination="4JM-Xt-9be" kind="presentation" identifier="OpenModalTooltip" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="5u4-0m-Ffc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bhp-so-Xab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1978.4000000000001" y="119.1904047976012"/>
         </scene>
+        <!--ItemTooltipUI-->
+        <scene sceneID="8Ti-FB-Tga">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ItemTooltipUI" id="4JM-Xt-9be" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYN-HV-rMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2657" y="3"/>
+        </scene>
         <!--MainNav-->
         <scene sceneID="5LP-BD-mqN">
             <objects>
-                <navigationController storyboardIdentifier="MainNav" title="MainNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j5H-cw-FK0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNav" title="MainNav" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j5H-cw-FK0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Pursuits" image="TabPursuits" id="Tvy-Kv-9T1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Clr-wM-Hgv">

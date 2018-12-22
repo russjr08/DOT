@@ -24,6 +24,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b1cc1b1-bad7-47d4-bf3f-3072d208d983" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Assets.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/UI/ItemTooltip.swift" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/UI/ItemTooltipUI.storyboard" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Modal.swift" afterDir="false" />
@@ -57,8 +71,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/UI/ItemTooltip.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-328">
-              <caret line="18" column="91" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
+            <state relative-caret-position="255">
+              <caret line="17" column="94" selection-start-line="17" selection-start-column="94" selection-end-line="17" selection-end-column="94" />
               <folding>
                 <element signature="e#118#135#0" expanded="true" />
               </folding>
@@ -247,25 +261,24 @@
       <workItem from="1544387580702" duration="4409000" />
       <workItem from="1545335966755" duration="3097000" />
       <workItem from="1545339463499" duration="779000" />
-      <workItem from="1545430144805" duration="10871000" />
+      <workItem from="1545430144805" duration="11136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44842000" />
+    <option name="totallyTimeSpent" value="45107000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="999" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16666667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32855567" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32855567" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32855567" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39911798" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39911798" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -378,8 +391,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/UI/ItemTooltip.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-328">
-          <caret line="18" column="91" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
+        <state relative-caret-position="255">
+          <caret line="17" column="94" selection-start-line="17" selection-start-column="94" selection-end-line="17" selection-end-column="94" />
           <folding>
             <element signature="e#118#135#0" expanded="true" />
           </folding>

@@ -208,6 +208,7 @@ class Database {
 
 public class InventoryItemDefinition: Codable, CustomDebugStringConvertible {
     var displayProperties: Destiny.DisplayProperties
+    public var inventory: InventoryData
     public var hash: Int
     public var redacted: Bool
     public var rewards = [RewardItemDefinition]()
@@ -218,11 +219,17 @@ public class InventoryItemDefinition: Codable, CustomDebugStringConvertible {
     public var debugDescription: String {
         return "InventoryItemDefinition [Hash: \(hash), DisplayProperties: \(displayProperties)]"
     }
+
+    public struct InventoryData: Codable {
+        var tierTypeName: String
+        var maxStackSize: Int
+    }
     
     enum CodingKeys: String, CodingKey {
         case rewards = "value"
         case hash = "hash"
         case displayProperties
+        case inventory
         case redacted
         case itemTypeDisplayName
         case itemTypeAndTierDisplayName
@@ -239,6 +246,7 @@ public class InventoryItemDefinition: Codable, CustomDebugStringConvertible {
         self.hash = try item.decode(Int.self, forKey: InventoryItemDefinition.CodingKeys.hash)
 
         self.displayProperties = try item.decode(Destiny.DisplayProperties.self, forKey: CodingKeys.displayProperties)
+        self.inventory = try item.decode(InventoryData.self, forKey: CodingKeys.inventory)
         self.redacted = try item.decode(Bool.self, forKey: CodingKeys.redacted)
         self.itemTypeDisplayName = try item.decode(String.self, forKey: CodingKeys.itemTypeDisplayName)
         self.itemTypeAndTierDisplayName = try item.decode(String.self, forKey: CodingKeys.itemTypeAndTierDisplayName)

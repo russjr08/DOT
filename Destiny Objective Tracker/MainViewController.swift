@@ -384,8 +384,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     // Table View
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.section == 0) {
+
+            performSegue(withIdentifier: "OpenModalTooltip", sender: indexPath.row)
+
+        }
+
+        tableView.deselectRow(at: indexPath, animated: true)
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "OpenModalTooltip" {
+            if let popup = segue.destination as? ItemTooltip {
+                popup.associate(with: getEligibleItemsFromList()[sender as! Int])
+            }
+        }
+
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
