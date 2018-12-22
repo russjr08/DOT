@@ -181,7 +181,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 
             self.destiny.getDestinyMemberships().done({ memberships in
-                if(platformPreference != nil) {
+                if(platformPreference != 0) {
                     self.destiny.platform = Destiny.DestinyMembership.MembershipType.init(rawValue: platformPreference)!
                     self.destiny.membershipID = self.defaults.string(forKey: "membership_id") ?? "unknown"
 
