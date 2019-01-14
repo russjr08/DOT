@@ -10,15 +10,7 @@ import UIKit
 
 @IBDesignable
 class ObjectiveView: UIView {
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
+
         
     @IBOutlet var container: UIView!
     @IBOutlet weak var descriptionLbl: UILabel!
@@ -82,7 +74,9 @@ class ObjectiveView: UIView {
     
     var observation: NSKeyValueObservation?
     
-    
+    func disableProgressBackground() {
+        container.backgroundColor = UIColor.clear
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

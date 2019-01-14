@@ -47,6 +47,11 @@ class RewardItemView: UIView {
             //icon.image = icon.image?.resizeImage(targetSize: CGSize.init(width: 40, height: 40))
         }
     }
+
+    func setNeedsTransparentDisplay() {
+        container.backgroundColor = UIColor.clear
+        name.textColor = UIColor.white
+    }
     
     func loadNib() {
         let bundle = Bundle(for: RewardItemView.self)

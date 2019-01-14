@@ -9,8 +9,9 @@ import UIKit
 @IBDesignable
 class ItemTooltip: UIViewController {
 
-    var backgroundView = UIView()
 
+    @IBOutlet var backgroundView: UIView!
+    
     var item: Destiny.Item?
 
     static let UNCOMMON_QUEST_COLOR = UIColor.init(red: 0.23, green: 0.34, blue: 0.19, alpha: 1.0)
@@ -18,7 +19,10 @@ class ItemTooltip: UIViewController {
     static let LEGENDARY_QUEST_COLOR = UIColor.init(red:0.18, green:0.11, blue:0.22, alpha:1.0)
     static let EXOTIC_QUEST_COLOR = UIColor.init(red:0.81, green:0.68, blue:0.20, alpha:1.0)
 
-
+    var blurEffect = UIBlurEffect(style: .regular)
+    
+    var blurEffectView: UIVisualEffectView!
+    
 
     @IBOutlet weak var questTopBorder: UIView!
     
@@ -26,7 +30,12 @@ class ItemTooltip: UIViewController {
     
     @IBOutlet weak var lblItemType: UILabel!
     
-    @IBOutlet weak var lblItemDescription: UILabel!
+    @IBOutlet weak var lblItemDescription: UITextView!
+    
+    @IBOutlet weak var descriptionHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var objectives: UIStackView!
+    @IBOutlet weak var rewards: UIStackView!
     
     @IBInspectable var questColor: UIColor = LEGENDARY_QUEST_COLOR {
         didSet {
@@ -47,8 +56,10 @@ class ItemTooltip: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
+
+
         super.viewDidLayoutSubviews()
-        self.lblItemDescription.sizeToFit()
+        descriptionHeightConstraint.constant = lblItemDescription.contentSize.height
     }
 
     func setup() {
@@ -69,21 +80,77 @@ class ItemTooltip: UIViewController {
         default:
             self.questColor = ItemTooltip.RARE_QUEST_COLOR
         }
+        
+        // Blurred Background
 
-        let blurEffect = UIBlurEffect(style: .regular)
-
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffect = UIBlurEffect.init(style: .regular)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        
+        
+        blurEffectView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(backgroundViewPressed(_:))))
+        
+        
 
         view.insertSubview(blurEffectView, at: 0)
-    }
-
-    @IBAction func closeBtnPressed(_ sender: Any) {
         
+        // Setup Objectives
+        
+        if let item = self.item {
+            for objective in item.objectives {
+                self.addObjective(objective)
+            }
+        }
+
+        if let definition = self.item?.definition?.rewards {
+            for reward in definition {
+                self.addReward(reward)
+            }
+        }
+
+        self.lblItemDescription.sizeToFit()
+
+
+        objectives.setNeedsLayout()
+        objectives.layoutSubviews()
+        objectives.setNeedsDisplay()
+
+        rewards.setNeedsLayout()
+        rewards.layoutSubviews()
+        rewards.setNeedsDisplay()
+
+        self.updateViewConstraints()
+
+        self.viewWillLayoutSubviews()
+
+    }
+    
+    @objc func backgroundViewPressed(_ recognizer: UITapGestureRecognizer) {
+        print("Dismissing!")
         self.navigationController?.popToRootViewController(animated: true)
         self.dismiss(animated: true)
+    }
 
+    
+    func addObjective(_ objective: Destiny.Objective) {
+        let objectiveView = ObjectiveView()
+        
+        objectiveView.disableProgressBackground()
+        objectiveView.setObjective(to: objective)
+        
+        self.objectives.addArrangedSubview(objectiveView)
+    }
+
+    func addReward(_ reward: RewardItemDefinition) {
+        let rewardView = RewardItemView()
+
+        rewardView.setNeedsTransparentDisplay()
+        rewardView.setItem(to: reward)
+
+        self.rewards.addArrangedSubview(rewardView)
     }
 
 
