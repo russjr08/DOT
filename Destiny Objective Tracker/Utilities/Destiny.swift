@@ -607,8 +607,13 @@ public class Destiny {
                         self.defaults.set(response.object(forKey: "access_token"), forKey: "access_token")
                         self.defaults.set(response.object(forKey: "refresh_token"), forKey: "refresh_token")
                         self.defaults.set(response.object(forKey: "membership_id"), forKey: "membership_id")
-                        self.defaults.set(Date.init(timeIntervalSinceNow: TimeInterval.init(Double.init(response.object(forKey: "expires_in") as! Int64))), forKey: "access_token_expiration")
-                        self.defaults.set(Date.init(timeIntervalSinceNow: TimeInterval.init(Double.init(response.object(forKey: "refresh_expires_in") as! Int64))), forKey: "refresh_token_expiration")
+                        do {
+                            self.defaults.set(try Date.init(timeIntervalSinceNow: TimeInterval.init(Double.init(response.object(forKey: "expires_in") as! Int64))), forKey: "access_token_expiration")
+                            self.defaults.set(try Date.init(timeIntervalSinceNow: TimeInterval.init(Double.init(response.object(forKey: "refresh_expires_in") as! Int64))), forKey: "refresh_token_expiration")
+                        } catch {
+                            print("Error occurred while trying to parse time/date")
+                        }
+
                         
                         seal.fulfill(())
                         break

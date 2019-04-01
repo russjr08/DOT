@@ -27,6 +27,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     let activityIndicator = UIActivityIndicatorView(style: .gray)
+    let searchControl = UISearchController(searchResultsController: nil)
     
     
     let defaults = UserDefaults.init()
@@ -41,6 +42,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                               duration: 0.35,
                               options: .transitionCrossDissolve,
                               animations: { self.itemTable.reloadData() })
+        }
+    }
+
+    var search = "" {
+        didSet {
+            self.itemTable.reloadData()
         }
     }
     
@@ -100,7 +107,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         itemTable.estimatedRowHeight = 120
         itemTable.delegate = self
         itemTable.dataSource = self
-        
+
+        #if !DEBUG
+        navigationController?.tabBarController?.viewControllers?.remove(at: 2)
+        #endif
+
+
+        searchControl.searchResultsUpdater = self
+        searchControl.obscuresBackgroundDuringPresentation = false
+        searchControl.searchBar.placeholder = "Search Pursuits"
+        navigationItem.searchController = searchControl
+        definesPresentationContext = true
     }
     
     @objc func refreshCurrentCharacter() {
@@ -502,6 +519,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if(item.definition?.itemTypeDisplayName == self.pursuitFilter) {
                             eligible.append(item)
                         }
+                    } else if(self.search != "") {
+                        if((item.name?.contains(search))! || (item.description?.contains(search))!) {
+                            eligible.append(item)
+                        }
+                    } else if(self.pursuitFilter != "" && self.search != "") {
+                        if(item.definition?.itemTypeDisplayName == self.pursuitFilter) {
+                            if((item.name?.contains(search))! || (item.description?.contains(search))!) {
+                                eligible.append(item)
+                            }
+                        }
                     } else {
                         eligible.append(item)
                     }
@@ -535,7 +562,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return milestones
     }
+
+    func updateSearch(searchParams: String) {
+        self.search = searchParams
+    }
    
 }
 
-
+extension MainViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        self.updateSearch(searchParams: searchControl.searchBar.text ?? "")
+    }
+    
+    
+}
