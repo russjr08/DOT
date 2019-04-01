@@ -252,11 +252,22 @@
                     <connections>
                         <segue destination="j5H-cw-FK0" kind="relationship" relationship="viewControllers" id="T32-mK-b6w"/>
                         <segue destination="U6f-NO-LZ4" kind="relationship" relationship="viewControllers" id="ZMO-ya-OGF"/>
+                        <segue destination="18c-4F-oZY" kind="relationship" relationship="viewControllers" id="Eqt-ZZ-hWM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weB-Ow-n3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="100" y="119.1904047976012"/>
+        </scene>
+        <!--VendorsView-->
+        <scene sceneID="HzT-Uf-HWb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="VendorsView" id="18c-4F-oZY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="MRX-Jj-gMJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJm-dv-P32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-263" y="644"/>
         </scene>
         <!--Settings-->
         <scene sceneID="wQ8-g0-hID">
@@ -339,6 +350,39 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uNS-k0-BVn">
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uNS-k0-BVn" id="xaS-9h-EbI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Token" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwS-qu-pEN">
+                                                    <rect key="frame" x="31" y="9" width="105.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMb-J3-v6r">
+                                                    <rect key="frame" x="159" y="11.5" width="190" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="190" id="fTU-dH-lHe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fMb-J3-v6r" firstAttribute="trailing" secondItem="xaS-9h-EbI" secondAttribute="trailingMargin" constant="-10" id="FoH-FA-gng"/>
+                                                <constraint firstItem="zwS-qu-pEN" firstAttribute="leading" secondItem="xaS-9h-EbI" secondAttribute="leadingMargin" constant="15" id="R3q-X4-OAJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fMb-J3-v6r" secondAttribute="bottom" constant="1" id="T7E-Pi-HWl"/>
+                                                <constraint firstItem="fMb-J3-v6r" firstAttribute="centerY" secondItem="xaS-9h-EbI" secondAttribute="centerY" id="VoD-db-ycB"/>
+                                                <constraint firstItem="fMb-J3-v6r" firstAttribute="firstBaseline" secondItem="zwS-qu-pEN" secondAttribute="firstBaseline" id="sue-dK-TW4"/>
+                                                <constraint firstItem="fMb-J3-v6r" firstAttribute="baseline" secondItem="zwS-qu-pEN" secondAttribute="baseline" id="vve-Nk-5YS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -349,6 +393,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="ox4-xl-YMh"/>
                     <connections>
+                        <outlet property="accessTokenCell" destination="uNS-k0-BVn" id="gCB-lC-lzV"/>
+                        <outlet property="accessTokenLabel" destination="fMb-J3-v6r" id="A7O-C2-733"/>
                         <outlet property="memberIdLabel" destination="YNp-x3-kIN" id="PfC-2s-W16"/>
                         <outlet property="selectedPlatformLabel" destination="NXs-MI-Lnm" id="dpy-lK-Jg0"/>
                         <outlet property="settingsTable" destination="bor-Gm-U1f" id="2Ij-AX-fL2"/>

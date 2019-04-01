@@ -17,11 +17,16 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var selectedPlatformLabel: UILabel!
 
     @IBOutlet weak var memberIdLabel: UILabel!
+    @IBOutlet weak var accessTokenLabel: UILabel!
+    
+    @IBOutlet weak var accessTokenCell: UITableViewCell!
+    
     
     override func viewDidAppear(_ animated: Bool) {
 
         loadSettings()
         settingsTable.delegate = self
+        accessTokenCell.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(accessTokenCellTapped(_:))))
     }
 
     func loadSettings() {
@@ -32,6 +37,12 @@ class SettingsViewController: UITableViewController {
         }
 
         memberIdLabel.text = destiny.membershipID
+        accessTokenLabel.text = destiny.access_token
+    }
+    
+    @objc func accessTokenCellTapped(_ recognizer: UIGestureRecognizer) {
+        print("Cell clicked")
+        UIPasteboard.general.string = destiny.access_token
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

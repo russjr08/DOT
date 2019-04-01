@@ -22,8 +22,7 @@ public class Destiny {
     
     public class Constants {
         static let BASE_URL = "https://www.bungie.net/Platform/Destiny2/"
-        static let MOBILE_CONTENT_EN = "https://www.bungie.net/common/destiny2_content/sqlite/en/world_sql_content_b48cb03f908d01eaf74a08af4b4066f3.content"
-        static let MOBILE_CONTENT_NAME = "world_sql_content_b48cb03f908d01eaf74a08af4b4066f3.content"
+
         static let TOKEN_ENDPOINT = "https://www.bungie.net/Platform/App/OAuth/Token/"
         
         static let API_KEY = "9d031cfae6b4418691ab95cca9391647"

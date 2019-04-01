@@ -339,6 +339,12 @@ public class RewardItemDefinition: Codable {
 
 }
 
+public class VendorDefinition: Codable {
+    public var displayProperties: Destiny.DisplayProperties
+
+
+}
+
 public struct ObjectiveData: Codable, CustomDebugStringConvertible {
     
     public var displayProperties: Destiny.DisplayProperties
