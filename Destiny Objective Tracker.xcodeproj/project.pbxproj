@@ -32,11 +32,11 @@
 		0EF01E782153351A00BA52C7 /* RewardItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EF01E772153351A00BA52C7 /* RewardItemView.xib */; };
 		0EF01E7A2153364100BA52C7 /* RewardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF01E792153364100BA52C7 /* RewardItemView.swift */; };
 		327C895C5C2DD75D779E09C4 /* Pods_Destiny_Objective_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 760529F1982367EFFC27EE48 /* Pods_Destiny_Objective_TrackerTests.framework */; };
+		32DEFFE5372A10CB73212251 /* Pods_Destiny_Objective_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAB29E749EDBFB296D2D2D5 /* Pods_Destiny_Objective_Tracker.framework */; };
 		3A42C0ADEAEADF58AC6BBC93 /* ItemTooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42C4214D849386BAB5E3D3 /* ItemTooltip.swift */; };
 		3A42C4A1D3CE686407E37D87 /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42C2AF2C7D2C5BCA846221 /* Vendors.swift */; };
 		3A42CA2F6BAF87D094522DB9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42C527CC90B6D8117A6A41 /* SettingsViewController.swift */; };
 		64355456C9A0185695565063 /* Pods_Destiny_Objective_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7E0400DFAC78E4AF666802 /* Pods_Destiny_Objective_TrackerUITests.framework */; };
-		EE1515BE042D83DDA90F32F0 /* Pods_Destiny_Objective_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAB29E749EDBFB296D2D2D5 /* Pods_Destiny_Objective_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +64,7 @@
 		0E2C43E3214A170B0056C8D6 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		0E31B452214F2AD800D489C8 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		0E33EA1921CC368100F2AD32 /* ItemTooltipUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemTooltipUI.storyboard; sourceTree = "<group>"; };
+		0E4959AB22618483005C6CFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E579A16214A36C400BA224C /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
 		0E5AD40D21EC3F65000BDB50 /* VendorsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VendorsView.storyboard; sourceTree = "<group>"; };
 		0E78D49C214DA7170084392D /* CompletionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionBox.swift; sourceTree = "<group>"; };
@@ -106,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE1515BE042D83DDA90F32F0 /* Pods_Destiny_Objective_Tracker.framework in Frameworks */,
+				32DEFFE5372A10CB73212251 /* Pods_Destiny_Objective_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +222,7 @@
 		CD2278DB0B140BB7439B1BD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E4959AB22618483005C6CFD /* Alamofire.framework */,
 				FBAB29E749EDBFB296D2D2D5 /* Pods_Destiny_Objective_Tracker.framework */,
 				760529F1982367EFFC27EE48 /* Pods_Destiny_Objective_TrackerTests.framework */,
 				6F7E0400DFAC78E4AF666802 /* Pods_Destiny_Objective_TrackerUITests.framework */,
@@ -253,6 +255,7 @@
 				0E965F67211298DE007B80CC /* Frameworks */,
 				0E965F68211298DE007B80CC /* Resources */,
 				9F496109A03095BAB1977189 /* [CP] Embed Pods Frameworks */,
+				0E4959AD22618787005C6CFD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -377,6 +380,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E4959AD22618787005C6CFD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" a7e785b44c479e7fe75576553ba8de35d7c28cf2 d2d7d1a8ce95366eeb715fd3f442e4e3c340c2c517c3341b9806535a0389b264\n";
+		};
 		9F496109A03095BAB1977189 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -658,6 +679,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = H5B6QMJ25Y;
 				INFOPLIST_FILE = "Destiny Objective Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

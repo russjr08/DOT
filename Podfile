@@ -11,6 +11,9 @@ target 'Destiny Objective Tracker' do
   pod 'PromiseKit', '~> 6.0'
   pod 'PromiseKit/Alamofire', '~> 6.0'
   pod 'SwiftyJSON', '~> 4.0'
+  
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   target 'Destiny Objective TrackerTests' do
     inherit! :search_paths

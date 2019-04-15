@@ -11,6 +11,8 @@ import Alamofire
 import Zip
 import SQLite
 import PromiseKit
+import Fabric
+import Crashlytics
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
@@ -293,14 +295,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func verifyAndCheckLogin() -> Promise<Void> {
         
         return Promise { seal in
-            if(defaults.string(forKey: "access_token") == nil) {
+            if(defaults.string(forKey: "access_token") == nil || defaults.string(forKey: "access_token_expiration") == nil) {
                 // No access token has been created yet.
                 destiny.createAccessToken(withOAuthToken: defaults.string(forKey: "oauthtoken")!).done { _ in
                     self.downloadDatabase().cauterize()
                     seal.fulfill(())
                 }.cauterize()
             }
-            
+
             if(!destiny.checkAccessToken()) {
                 if(!destiny.checkRefreshToken()) {
                     // Both Access and Refresh Tokens are expired. Return to Login Screen.
@@ -325,11 +327,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 seal.fulfill(())
             }
+            
         }
         
         
     }
-    
+
     func promptLoginExpiredAndReturnToLogin() {
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
 

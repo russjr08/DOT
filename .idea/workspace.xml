@@ -25,9 +25,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9b1cc1b1-bad7-47d4-bf3f-3072d208d983" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Destiny Objective Tracker.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Destiny Objective Tracker.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Destiny Objective Tracker/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Destiny Objective Tracker/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Destiny Objective Tracker/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Destiny Objective Tracker/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Main.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Destiny Objective Tracker/MainViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Destiny Objective Tracker/MainViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Destiny Objective Tracker/UI/VendorsView.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/Destiny Objective Tracker/UI/VendorsView.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Destiny.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Destiny.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Extensions.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Extensions.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/Destiny_Objective_Tracker-esoqftvqkrxywkcasekrwutyqbvz/" />
     <ignored path="$USER_HOME$/Library/Caches/AppCode2019.1/DerivedData/Destiny_Objective_Tracker-esoqftvqkrxywkcasekrwutyqbvz/Build/Intermediates.noindex/" />
@@ -43,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/MainViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="110" column="77" selection-start-line="110" selection-start-column="77" selection-end-line="110" selection-end-column="77" />
+            <state relative-caret-position="166">
+              <caret line="175" selection-start-line="175" selection-end-line="175" />
             </state>
           </provider>
         </entry>
@@ -64,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Destiny.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="619" column="24" lean-forward="true" selection-start-line="619" selection-start-column="24" selection-end-line="619" selection-end-column="24" />
+            <state relative-caret-position="9240">
+              <caret line="628" column="24" selection-start-line="628" selection-start-column="24" selection-end-line="628" selection-end-column="24" />
               <folding>
                 <element signature="e#165#177#0" expanded="true" />
               </folding>
@@ -125,14 +131,14 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="999" />
+    <option name="height" value="1002" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,7 +171,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -232,25 +238,26 @@
       <workItem from="1549904874984" duration="1509000" />
       <workItem from="1554093180394" duration="540000" />
       <workItem from="1554093859011" duration="28000" />
-      <workItem from="1554093921068" duration="2381000" />
+      <workItem from="1554093921068" duration="3063000" />
+      <workItem from="1555293889688" duration="238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60126000" />
+    <option name="totallyTimeSpent" value="60808000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="999" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1002" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.185836" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18743344" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32855567" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32855567" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39911798" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39911798" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -272,7 +279,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Destiny.swift</url>
-          <line>716</line>
+          <line>725</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -359,12 +366,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/MainViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="175" selection-start-line="175" selection-end-line="175" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/SettingsViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="e#118#135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Destiny.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9240">
+          <caret line="628" column="24" selection-start-line="628" selection-start-column="24" selection-end-line="628" selection-end-column="24" />
+          <folding>
+            <element signature="e#165#177#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -380,23 +404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4890">
           <caret line="329" column="27" selection-start-line="329" selection-start-column="27" selection-end-line="329" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/Utilities/Destiny.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="619" column="24" lean-forward="true" selection-start-line="619" selection-start-column="24" selection-end-line="619" selection-end-column="24" />
-          <folding>
-            <element signature="e#165#177#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Destiny Objective Tracker/MainViewController.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="110" column="77" selection-start-line="110" selection-start-column="77" selection-end-line="110" selection-end-column="77" />
         </state>
       </provider>
     </entry>
