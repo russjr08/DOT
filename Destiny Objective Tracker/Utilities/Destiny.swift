@@ -241,7 +241,11 @@ public class Destiny {
         
         public var inventory = [Item]()
         public var milestones = [Destiny.API.MilestoneResponse]()
-        
+        public var storyMilestones = [Destiny.API.MilestoneResponse]()
+        public var extendedMilestones = [Destiny.API.MilestoneResponse]()
+
+
+
         init(fromRace race: Race, withClass charClass: Class, withId id: String, withLight light: Int, withLevel level: Int, withEmblem emblem: String, withLastPlayed lastPlayed: Date? = nil, withMembershipId membershipId: String, withMembershipType membershipType: DestinyMembership.MembershipType) {
             self.race = race
             self.charClass = charClass
@@ -347,9 +351,26 @@ public class Destiny {
 
                                 let decoder = JSONDecoder()
                                 let milestoneResponse = try decoder.decode(Destiny.API.MilestoneResponse.self, from: ((text?.data(using: .utf8)!)!))
+                                
+                                if(milestoneResponse.milestoneHash == 534869653) {
+                                    // Always whitelist Xur
+                                    milestoneResponse.definition.showInMilestones = true
+                                }
                                 if milestoneResponse.definition.showInMilestones {
                                     self.milestones.append(milestoneResponse)
                                     print("Added milestone to character: \(milestoneResponse.definition.displayProperties.name?.description) -- \(milestoneResponse.definition.hash.description)")
+                                }
+
+                                if(milestoneResponse.milestoneType == 2) {
+                                    // These are usually story milestones
+
+                                    self.storyMilestones.append(milestoneResponse)
+                                }
+
+                                if(milestoneResponse.milestoneType != 2 && milestoneResponse.definition.showInMilestones == false) {
+                                    // All other milestones
+
+                                    self.extendedMilestones.append(milestoneResponse)
                                 }
                             }
                         }
@@ -399,8 +420,8 @@ public class Destiny {
             public var description: String {
                 switch self {
                 case .PC: return "PC"
-                case .XBOX: return "Xbox"
-                case .PS: return "PlayStation"
+                case .XBOX: return "Xbox One"
+                case .PS: return "PlayStation 4"
                 }
             }
         }
@@ -432,6 +453,7 @@ public class Destiny {
             public var endDate: Date?
             public var activities: [Activity]?
             public var availableQuests: [Quest]?
+            public var milestoneType: Int?
             
             public struct Activity: Codable {
                 public var activityHash: Int
@@ -481,7 +503,7 @@ public class Destiny {
                 self.availableQuests = try response.decodeIfPresent([Quest].self, forKey: .availableQuests)
                 let startDateStr = try response.decodeIfPresent(String.self, forKey: CodingKeys.startDate)
                 let endDateStr = try response.decodeIfPresent(String.self, forKey: CodingKeys.endDate)
-                
+                self.milestoneType = try response.decodeIfPresent(Int.self, forKey: CodingKeys.milestoneType)
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

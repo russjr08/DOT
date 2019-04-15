@@ -440,7 +440,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -464,6 +464,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } else {
                     return 0
                 }
+                
+            case 3:
+                return self.character?.milestones.filter({$0.definition.milestoneType == 2}).count ?? 0
             default:
                 return 0
             }
@@ -481,6 +484,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.setMilestone(to: getDailyMilestones()[indexPath.row])
         } else if indexPath.section == 2 && !getWeeklyMilestones().isEmpty {
             cell.setMilestone(to: getWeeklyMilestones()[indexPath.row])
+        } else if indexPath.section == 3 && !getStoryMilestones().isEmpty {
+            cell.setMilestone(to: getStoryMilestones()[indexPath.row])
         }
 
         cell.layoutIfNeeded()
@@ -515,6 +520,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 return "Daily Challenges"
             case 2:
                 return "Weekly Challenges"
+            case 3:
+                return "Story Milestones"
             default:
                 return "Unknown"
         }
@@ -586,6 +593,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let character = self.character {
             if character.milestones.count > 0 {
                 milestones.append(contentsOf: character.milestones.filter({$0.definition.milestoneType == 3}))
+                return milestones
+            }
+        }
+        return milestones
+    }
+    
+    func getStoryMilestones() -> [Destiny.API.MilestoneResponse] {
+        var milestones = [Destiny.API.MilestoneResponse]()
+        if let character = self.character {
+            if character.milestones.count > 0 {
+                milestones.append(contentsOf: character.milestones.filter({$0.definition.milestoneType == 2}))
                 return milestones
             }
         }

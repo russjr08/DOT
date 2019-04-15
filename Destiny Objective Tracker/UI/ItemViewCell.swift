@@ -119,7 +119,12 @@ class ItemViewCell: UITableViewCell {
         self.descriptionLabel.text = milestone.definition.displayProperties.description
         self.typeLabel.text = "Milestone / Challenge"
         
-        self.grabImage(icon: milestone.definition.displayProperties.icon)
+        if(milestone.definition.displayProperties.icon != nil || milestone.definition.displayProperties.icon?.isEmpty ?? false == false) {
+            self.grabImage(icon: milestone.definition.displayProperties.icon)
+        } else if(milestone.availableQuests?.count ?? 0 > 0) {
+            self.grabImage(icon: milestone.availableQuests?.first?.questItem?.displayProperties.icon)
+        }
+        
         self.iconView.backgroundColor = UIColor.black
         
         if milestone.endDate != nil {

@@ -72,6 +72,10 @@ extension UIImageView {
         DispatchQueue.background(background: {
             URLSession.shared.dataTask(with: url!) {
                 data, response, error in
+                
+                if error != nil {
+                    print("Encounted an error with \(urlString)")
+                }
                 if data != nil {
                     DispatchQueue.main.async {
                         let imageToCache = UIImage(data: data!)
