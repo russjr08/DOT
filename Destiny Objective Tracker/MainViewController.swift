@@ -15,12 +15,13 @@ import PromiseKit
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     enum ItemDisplayType: Int {
-        case pursuit = 0, weeklyChallenge, dailyChallenge
+        case pursuit = 0, weeklyChallenge, dailyChallenge, all
     }
     
     let sectionHeaderSize: CGFloat = 25
 
     @IBOutlet weak var statusButton: UIBarButtonItem!
+    @IBOutlet weak var debugButton: UIBarButtonItem!
     private var statusLabel = StatusLabel(frame: CGRect.zero)
     
     @IBOutlet weak var itemTable: UITableView!
@@ -46,6 +47,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     var search = "" {
+        didSet {
+            self.itemTable.reloadData()
+        }
+    }
+    
+    var scope: ItemDisplayType = ItemDisplayType.all {
         didSet {
             self.itemTable.reloadData()
         }
@@ -110,12 +117,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         #if !DEBUG
         navigationController?.tabBarController?.viewControllers?.remove(at: 2)
+        self.navigationItem.rightBarButtonItem = nil
         #endif
 
 
+        searchControl.searchBar.tintColor = UIColor.white
         searchControl.searchResultsUpdater = self
+        searchControl.searchBar.delegate = self
         searchControl.obscuresBackgroundDuringPresentation = false
-        searchControl.searchBar.placeholder = "Search Pursuits"
+        searchControl.searchBar.placeholder = "Search Pursuits / Change Visibility"
+        
+        searchControl.searchBar.scopeButtonTitles = ["All", "Pursuits", "Daily", "Weekly"]
+        searchControl.searchBar.selectedScopeButtonIndex = 0
+        
         navigationItem.searchController = searchControl
         definesPresentationContext = true
     }
@@ -430,11 +444,23 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(characters.count > 0) {
             switch section {
             case 0:
-                return getEligibleItemsFromList().count
+                if(scope == ItemDisplayType.pursuit || scope == ItemDisplayType.all) {
+                    return getEligibleItemsFromList().count
+                } else {
+                    return 0
+                }
             case 1:
-                return self.character?.milestones.filter({$0.definition.milestoneType == 4}).count ?? 0
+                if(scope == ItemDisplayType.dailyChallenge || scope == ItemDisplayType.all) {
+                    return self.character?.milestones.filter({$0.definition.milestoneType == 4}).count ?? 0
+                } else {
+                    return 0
+                }
             case 2:
-                return self.character?.milestones.filter({$0.definition.milestoneType == 3}).count ?? 0
+                if(scope == ItemDisplayType.weeklyChallenge || scope == ItemDisplayType.all) {
+                    return self.character?.milestones.filter({$0.definition.milestoneType == 3}).count ?? 0
+                } else {
+                    return 0
+                }
             default:
                 return 0
             }
@@ -569,11 +595,26 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
    
 }
 
-extension MainViewController: UISearchResultsUpdating {
+extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
         self.updateSearch(searchParams: searchControl.searchBar.text ?? "")
     }
     
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        print(selectedScope)
+        switch(selectedScope) {
+        case 0:
+            scope = ItemDisplayType.all
+        case 1:
+            scope = ItemDisplayType.pursuit
+        case 2:
+            scope = ItemDisplayType.dailyChallenge
+        case 3:
+            scope = ItemDisplayType.weeklyChallenge
+        default:
+            scope = ItemDisplayType.all
+        }
+    }
     
 }

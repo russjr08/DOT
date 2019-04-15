@@ -11,17 +11,17 @@ import UIKit
 
 // https://gist.github.com/madcato/c5f237c6b3d9857fc61be30555d2f2e4
 
-extension Decodable {
-    init(_ any: Any) throws {
-        let data = try JSONSerialization.data(withJSONObject: any, options: .prettyPrinted)
-        let decoder = JSONDecoder()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:sszzz"
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-    
-        self = try decoder.decode(Self.self, from: data)
-    }
-}
+//extension Decodable {
+//    init(_ any: Any) throws {
+//        let data = try JSONSerialization.data(withJSONObject: any, options: .prettyPrinted)
+//        let decoder = JSONDecoder()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:sszzz"
+//        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+//    
+//        self = try decoder.decode(Self.self, from: data)
+//    }
+//}
 
 // https://stackoverflow.com/a/35876535/1391553
 extension UIStackView {

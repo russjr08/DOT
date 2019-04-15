@@ -554,6 +554,10 @@ public class Destiny {
                 let now = Date.init()
                 let access_expiration = defaults.object(forKey: "access_token_expiration") as? Date
                 
+                if(access_expiration == nil) {
+                    return false
+                }
+                
                 return !(now > access_expiration!)
             }
             
@@ -571,6 +575,10 @@ public class Destiny {
                 let now = Date.init()
                 let access_expiration = defaults.object(forKey: "refresh_token_expiration") as? Date
                 
+                if(access_expiration == nil) {
+                    return false
+                }
+                
                 return !(now > access_expiration!)
             }
             
@@ -583,6 +591,7 @@ public class Destiny {
         /// - returns: A Promise which is resolved when the access token operation is completed.
         ///
         func createAccessToken(withOAuthToken: String) -> Promise<Void> {
+            print("Creating access token with OAuthToken \(withOAuthToken)")
             return Promise { seal in
                 let parameters: Parameters = [
                     "grant_type": "authorization_code",
