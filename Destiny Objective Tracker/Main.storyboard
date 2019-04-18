@@ -97,11 +97,12 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="qnC-SA-ZMk"/>
                                                     </constraints>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e8T-Dt-HSm">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="e8T-Dt-HSm">
                                                     <rect key="frame" x="95" y="145.5" width="280" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="4Ug-7V-6Ok"/>
                                                     </constraints>
+                                                    <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -124,7 +125,7 @@
                                                 <constraint firstItem="duS-ri-69D" firstAttribute="top" secondItem="65r-3w-kYa" secondAttribute="top" constant="5" id="gpz-ur-LGf"/>
                                                 <constraint firstItem="iRV-RU-dCZ" firstAttribute="leading" secondItem="65r-3w-kYa" secondAttribute="leading" id="hn0-Ik-Dgb"/>
                                                 <constraint firstItem="KcX-Oc-NCD" firstAttribute="leading" secondItem="iRV-RU-dCZ" secondAttribute="trailing" constant="5" id="iw6-sM-5Uj"/>
-                                                <constraint firstItem="e8T-Dt-HSm" firstAttribute="top" secondItem="KcX-Oc-NCD" secondAttribute="bottom" id="mvV-9Z-K0s"/>
+                                                <constraint firstItem="e8T-Dt-HSm" firstAttribute="top" secondItem="KcX-Oc-NCD" secondAttribute="bottom" constant="5" id="mvV-9Z-K0s"/>
                                                 <constraint firstAttribute="trailing" secondItem="KcX-Oc-NCD" secondAttribute="trailing" id="n2f-Zr-wdO"/>
                                                 <constraint firstItem="KcX-Oc-NCD" firstAttribute="top" secondItem="FQf-dd-WqI" secondAttribute="bottom" constant="2" id="q2a-BH-cIu"/>
                                                 <constraint firstAttribute="bottom" secondItem="e8T-Dt-HSm" secondAttribute="bottom" constant="5" id="sLc-2R-7qo"/>
