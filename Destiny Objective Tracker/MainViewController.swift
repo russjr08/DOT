@@ -178,6 +178,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func showCharacterSelection(_ sender: Any) {
         let dialog = UIAlertController(title: "Select a character", message: nil, preferredStyle: .actionSheet)
+        dialog.popoverPresentationController?.barButtonItem = UIBarButtonItem(customView: characterButton)
+        dialog.popoverPresentationController?.sourceView = self.view
         for character in characters {
             dialog.addAction(UIAlertAction.init(title: "\(character.charClass.rawValue) - \(character.light)", style: .default, handler: { (_) in
                 dialog.dismiss(animated: true, completion: nil)
