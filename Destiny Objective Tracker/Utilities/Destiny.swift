@@ -364,7 +364,7 @@ public class Destiny {
                                 if(milestoneResponse.milestoneType == 2) {
                                     // These are usually story milestones
 
-                                    self.storyMilestones.append(milestoneResponse)
+                                    self.milestones.append(milestoneResponse)
                                 }
 
                                 if(milestoneResponse.milestoneType != 2 && milestoneResponse.definition.showInMilestones == false) {

@@ -17,7 +17,7 @@ import Crashlytics
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     enum ItemDisplayType: Int {
-        case pursuit = 0, weeklyChallenge, dailyChallenge, all
+        case pursuit = 0, weeklyChallenge, dailyChallenge, story, all
     }
     
     let sectionHeaderSize: CGFloat = 25
@@ -129,7 +129,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchControl.obscuresBackgroundDuringPresentation = false
         searchControl.searchBar.placeholder = "Search Pursuits / Change Visibility"
         
-        searchControl.searchBar.scopeButtonTitles = ["All", "Pursuits", "Daily", "Weekly"]
+        searchControl.searchBar.scopeButtonTitles = ["All", "Pursuits", "Daily", "Weekly", "Story"]
         searchControl.searchBar.selectedScopeButtonIndex = 0
         
         navigationItem.searchController = searchControl
@@ -466,7 +466,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
             case 3:
-                return self.character?.milestones.filter({$0.definition.milestoneType == 2}).count ?? 0
+                if(scope == ItemDisplayType.story || scope == ItemDisplayType.all) {
+                    return self.character?.milestones.filter({$0.definition.milestoneType == 2 || $0.definition.milestoneType == 5}).count ?? 0
+                } else {
+                    return 0
+                }
             default:
                 return 0
             }
@@ -521,7 +525,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             case 2:
                 return "Weekly Challenges"
             case 3:
-                return "Story Milestones"
+                return "Story / Special Milestones"
             default:
                 return "Unknown"
         }
@@ -603,7 +607,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         var milestones = [Destiny.API.MilestoneResponse]()
         if let character = self.character {
             if character.milestones.count > 0 {
-                milestones.append(contentsOf: character.milestones.filter({$0.definition.milestoneType == 2}))
+                milestones.append(contentsOf: character.milestones.filter({$0.definition.milestoneType == 2 || $0.definition.milestoneType == 5}))
                 return milestones
             }
         }
@@ -633,6 +637,8 @@ extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
             scope = ItemDisplayType.dailyChallenge
         case 3:
             scope = ItemDisplayType.weeklyChallenge
+        case 4:
+            scope = ItemDisplayType.story
         default:
             scope = ItemDisplayType.all
         }
