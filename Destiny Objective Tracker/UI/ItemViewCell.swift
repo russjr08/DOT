@@ -30,6 +30,7 @@ class ItemViewCell: UITableViewCell {
     
     func setItem(to item: Destiny.Item) {
         self.item = item
+        self.milestone = nil
         self.resetCell()
 
         
@@ -109,10 +110,14 @@ class ItemViewCell: UITableViewCell {
         self.descriptionLabel.text = ""
         self.expirationLabel.text = ""
         self.typeLabel.text = ""
+        self.iconView.image = nil
+
+
     }
     
     func setMilestone(to milestone: Destiny.API.MilestoneResponse) {
         self.resetCell()
+        self.item = nil
         self.milestone = milestone
         
         self.nameLabel.text = milestone.definition.displayProperties.name
@@ -194,8 +199,19 @@ class ItemViewCell: UITableViewCell {
     }
     
     func grabImage(icon: String?) {
-        if item != nil {
+        if icon != nil {
             self.iconView.setAndCacheImage(withURL: "https://www.bungie.net\(icon ?? "default")")
+            return
+        }
+
+        if item != nil  && item?.displayProperties.icon != nil{
+            self.iconView.setAndCacheImage(withURL: "https://www.bungie.net\(item?.displayProperties.icon! ?? "")")
+            return
+        }
+
+        if milestone != nil && milestone?.definition.displayProperties.icon != nil {
+            self.iconView.setAndCacheImage(withURL: "https://www.bungie.net\(milestone?.definition.displayProperties.icon! ?? "")")
+            return
         }
     }
     
