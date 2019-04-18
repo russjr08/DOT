@@ -60,7 +60,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    var cellHeightCache = Dictionary<Int, CGFloat>()
+    var cellHeightCache: [IndexPath : CGFloat] = [:]
     
     @IBOutlet weak var characterButton: UIButton!
     
@@ -503,7 +503,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cellHeightCache[indexPath.row] = cell.bounds.size.height
+        cellHeightCache[indexPath] = cell.bounds.size.height
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -512,7 +512,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let height = cellHeightCache[indexPath.row] {
+        if let height = cellHeightCache[indexPath] {
             return height
         }
         return 120.0
