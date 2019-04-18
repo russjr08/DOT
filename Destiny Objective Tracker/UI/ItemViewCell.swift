@@ -119,15 +119,36 @@ class ItemViewCell: UITableViewCell {
         self.resetCell()
         self.item = nil
         self.milestone = milestone
-        
+
         self.nameLabel.text = milestone.definition.displayProperties.name
         self.descriptionLabel.text = milestone.definition.displayProperties.description
+
+        if(milestone.availableQuests.count > 0) {
+            print(milestone)
+            do {
+                let dbItem = try Database.decryptItem(withHash: milestone.availableQuests.first!.questItemHash, fromTable: "DestinyInventoryItemDefinition")
+                if(dbItem?.displayProperties.name != nil && dbItem?.displayProperties.name?.isEmpty == false) {
+                    self.nameLabel.text = dbItem?.displayProperties.name ?? milestone.definition.displayProperties.name
+                }
+
+                if(dbItem?.displayProperties.description != nil && dbItem?.displayProperties.description?.isEmpty == false) {
+                    self.descriptionLabel.text = dbItem?.displayProperties.description ?? milestone.definition.displayProperties.description
+                }
+
+                if let icon = dbItem?.displayProperties.icon {
+                    grabImage(icon: dbItem?.displayProperties.icon)
+                }
+            } catch {
+                print("Couldn't decrypt quest item")
+            }
+        }
+
         self.typeLabel.text = "Milestone / Challenge"
         
         if(milestone.definition.displayProperties.icon != nil || milestone.definition.displayProperties.icon?.isEmpty ?? false == false) {
             self.grabImage(icon: milestone.definition.displayProperties.icon)
-        } else if(milestone.availableQuests?.count ?? 0 > 0) {
-            self.grabImage(icon: milestone.availableQuests?.first?.questItem?.displayProperties.icon)
+        } else if(milestone.availableQuests.count > 0) {
+            self.grabImage(icon: milestone.availableQuests.first?.questItem?.displayProperties.icon)
         }
         
         self.iconView.backgroundColor = UIColor.black
@@ -172,8 +193,8 @@ class ItemViewCell: UITableViewCell {
             }
         }
         
-        if let quests = milestone.availableQuests {
-            for quest in quests {
+
+            for quest in milestone.availableQuests {
                 self.grabImage(icon: quest.questItem?.displayProperties.icon)
                 for objective in quest.status.stepObjectives {
                     addObjective(objective)
@@ -186,7 +207,7 @@ class ItemViewCell: UITableViewCell {
                 }
                 
             }
-        }
+
 
         
         self.layoutSubviews()

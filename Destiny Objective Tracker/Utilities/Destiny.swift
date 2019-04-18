@@ -452,7 +452,7 @@ public class Destiny {
             public var startDate: Date?
             public var endDate: Date?
             public var activities: [Activity]?
-            public var availableQuests: [Quest]?
+            public var availableQuests: [Quest] = []
             public var milestoneType: Int?
             
             public struct Activity: Codable {
@@ -500,7 +500,7 @@ public class Destiny {
                 self.milestoneHash = try response.decode(Int.self, forKey: CodingKeys.milestoneHash)
                 self.rewards = try response.decodeIfPresent([RewardCollection].self, forKey: CodingKeys.rewards)
                 self.activities = try response.decodeIfPresent([Activity].self, forKey: CodingKeys.activities)
-                self.availableQuests = try response.decodeIfPresent([Quest].self, forKey: .availableQuests)
+                self.availableQuests = try response.decodeIfPresent([Quest].self, forKey: .availableQuests) ?? []
                 let startDateStr = try response.decodeIfPresent(String.self, forKey: CodingKeys.startDate)
                 let endDateStr = try response.decodeIfPresent(String.self, forKey: CodingKeys.endDate)
                 self.milestoneType = try response.decodeIfPresent(Int.self, forKey: CodingKeys.milestoneType)
