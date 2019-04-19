@@ -223,7 +223,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.downloadDatabase().done {
                         self.retrieveCharacters()
                         self.itemTable.reloadData()
-                        self.refreshTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(self.refreshCurrentCharacter), userInfo: nil, repeats: true)
+                        self.refreshTimer = Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(self.refreshCurrentCharacter), userInfo: nil, repeats: true)
                     }.cauterize()
 
                 } else {
@@ -515,7 +515,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let height = cellHeightCache[indexPath] {
             return height
         }
-        return 120.0
+        return 180.0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

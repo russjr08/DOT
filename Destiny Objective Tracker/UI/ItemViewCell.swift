@@ -136,7 +136,7 @@ class ItemViewCell: UITableViewCell {
                 }
 
                 if let icon = dbItem?.displayProperties.icon {
-                    grabImage(icon: dbItem?.displayProperties.icon)
+                    grabImage(icon: icon)
                 }
             } catch {
                 print("Couldn't decrypt quest item")

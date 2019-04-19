@@ -345,39 +345,46 @@ public class Destiny {
                             }
                         }
                         
+                        var sortedMilestones: [Destiny.API.MilestoneResponse] = []
+                        
                         for milestone in milestones {
                             if let milestoneJSON = try? JSONSerialization.data(withJSONObject: milestone.value, options: .prettyPrinted) {
                                 let text = String(data: milestoneJSON, encoding: .ascii)
-
+                                
                                 let decoder = JSONDecoder()
                                 let milestoneResponse = try decoder.decode(Destiny.API.MilestoneResponse.self, from: ((text?.data(using: .utf8)!)!))
                                 
-                                if(milestoneResponse.milestoneHash == 534869653) {
-                                    // Always whitelist Xur
-                                    milestoneResponse.definition.showInMilestones = true
-                                }
-                                if milestoneResponse.definition.showInMilestones {
-                                    self.milestones.append(milestoneResponse)
-                                    print("Added milestone to character: \(milestoneResponse.definition.displayProperties.name?.description) -- \(milestoneResponse.definition.hash.description)")
-                                }
-
-                                if(milestoneResponse.milestoneType == 2) {
-                                    // These are usually story milestones
-
-                                    self.milestones.append(milestoneResponse)
-                                }
-
-                                if(milestoneResponse.milestoneType != 2 && milestoneResponse.definition.showInMilestones == false) {
-                                    // All other milestones
-
-                                    self.extendedMilestones.append(milestoneResponse)
-                                }
+                                sortedMilestones.append(milestoneResponse)
                             }
                         }
-                        
-                        
-                        
-                        
+
+                        sortedMilestones.sort(by: { $0.milestoneHash > $1.milestoneHash })
+
+                        for milestoneResponse in sortedMilestones {
+                            if(milestoneResponse.milestoneHash == 534869653) {
+                                // Always whitelist Xur
+                                milestoneResponse.definition.showInMilestones = true
+                            }
+                            if milestoneResponse.definition.showInMilestones {
+                                self.milestones.append(milestoneResponse)
+                                print("Added milestone to character: \(milestoneResponse.definition.displayProperties.name?.description) -- \(milestoneResponse.definition.hash.description)")
+                            }
+
+                            if(milestoneResponse.milestoneType == 2) {
+                                // These are usually story milestones
+
+                                self.milestones.append(milestoneResponse)
+                            }
+
+                            if(milestoneResponse.milestoneType != 2 && milestoneResponse.definition.showInMilestones == false) {
+                                // All other milestones
+
+                                self.extendedMilestones.append(milestoneResponse)
+                            }
+                        }
+
+                        print("Done retrieving milestones!")
+
                         seal.fulfill(())
                     }).cauterize()
                 }
