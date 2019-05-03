@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var statusButton: UIBarButtonItem!
     @IBOutlet weak var debugButton: UIBarButtonItem!
+    var filterButton: UIBarButtonItem?
     private var statusLabel = StatusLabel(frame: CGRect.zero)
     
     @IBOutlet weak var itemTable: UITableView!
@@ -195,7 +196,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         UIApplication.shared.isIdleTimerDisabled = true
         
-        let filterButton = UIBarButtonItem.init(title: "Filter", style: .plain, target: self, action: #selector(openFilterDialog))
+        filterButton = UIBarButtonItem.init(title: "Filter", style: .plain, target: self, action: #selector(openFilterDialog))
         
         statusLabel.backgroundColor = UIColor.clear
         statusLabel.textAlignment = .center
@@ -204,11 +205,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         activityIndicator.hidesWhenStopped = true
         
-        toolbar.setItems([UIBarButtonItem.init(customView: activityIndicator), flex, statusButton, flex, filterButton], animated: true)
+        toolbar.setItems([UIBarButtonItem.init(customView: activityIndicator), flex, statusButton, flex, filterButton!], animated: true)
         
         statusLabel.text = "Checking Access..."
         
-        
+
         verifyAndCheckLogin().done {
 
             let platformPreference = self.defaults.integer(forKey: "platform")
@@ -281,6 +282,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func openFilterDialog() {
         let dialog = UIAlertController(title: "Select a pursuit type", message: nil, preferredStyle: .actionSheet)
+        
+        dialog.popoverPresentationController?.barButtonItem = self.filterButton
+        dialog.popoverPresentationController?.sourceView = self.view
+        
         for filter in getAvailablePursuitTypes() {
             dialog.addAction(UIAlertAction.init(title: filter, style: .default, handler: { (_) in
                 dialog.dismiss(animated: true, completion: nil)
@@ -294,41 +299,52 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(dialog, animated: true, completion: nil)
     }
     
+
+    
     func verifyAndCheckLogin() -> Promise<Void> {
         
-        return Promise { seal in
-            if(defaults.string(forKey: "access_token") == nil || defaults.string(forKey: "access_token_expiration") == nil) {
+        return firstly { Promise<Void> { seal in
+            print("Checking to see if access token has been created yet")
+            if(self.defaults.string(forKey: "access_token") == nil || self.defaults.object(forKey: "access_token_expiration") == nil) {
                 // No access token has been created yet.
+                print("Token has not been created yet")
                 destiny.createAccessToken(withOAuthToken: defaults.string(forKey: "oauthtoken")!).done { _ in
                     self.downloadDatabase().cauterize()
                     seal.fulfill(())
-                }.cauterize()
-            }
-
-            if(!destiny.checkAccessToken()) {
-                if(!destiny.checkRefreshToken()) {
-                    // Both Access and Refresh Tokens are expired. Return to Login Screen.
-                    promptLoginExpiredAndReturnToLogin()
-                    return
-                }
-                statusLabel.text = "Refreshing Access..."
-                statusLabel.setNeedsDisplay()
-                
-                destiny.refreshAccessToken().tap { result in
-                    switch result {
-                    case .rejected(let error):
-                        print(error)
-                        self.promptLoginExpiredAndReturnToLogin()
-                        break
-                    case .fulfilled(_):
+                }.done {
                         seal.fulfill(())
-                        break
-                    }
-                    
-                }.cauterize()
+                }
             } else {
                 seal.fulfill(())
-            }
+            }}.then{ Promise<Void> { seal in
+                print("Access refresh")
+                if(!self.destiny.checkAccessToken()) {
+                    if(!self.destiny.checkRefreshToken()) {
+                        // Both Access and Refresh Tokens are expired. Return to Login Screen.
+                        self.promptLoginExpiredAndReturnToLogin()
+                        return
+                    }
+                    self.statusLabel.text = "Refreshing Access..."
+                    self.statusLabel.setNeedsDisplay()
+                    
+                    self.destiny.refreshAccessToken().tap { result in
+                        switch result {
+                        case .rejected(let error):
+                            print(error)
+                            self.promptLoginExpiredAndReturnToLogin()
+                            break
+                        case .fulfilled(_):
+                            seal.fulfill(())
+                            break
+                        }
+                        
+                        }.cauterize()
+                } else {
+                    seal.fulfill(())
+                }
+            }}
+
+            
             
         }
         

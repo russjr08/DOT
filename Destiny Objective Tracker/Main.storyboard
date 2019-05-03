@@ -315,12 +315,33 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Wa6-dW-Czi">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wa6-dW-Czi" id="Gbb-aV-9Im">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt0-fL-NWK">
+                                                    <rect key="frame" x="31" y="11.5" width="313" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dt0-fL-NWK" firstAttribute="leading" secondItem="Gbb-aV-9Im" secondAttribute="leadingMargin" constant="15" id="NS3-SB-MIT"/>
+                                                <constraint firstItem="dt0-fL-NWK" firstAttribute="centerY" secondItem="Gbb-aV-9Im" secondAttribute="centerY" id="dBl-iT-qxt"/>
+                                                <constraint firstItem="dt0-fL-NWK" firstAttribute="centerX" secondItem="Gbb-aV-9Im" secondAttribute="centerX" id="sGZ-NZ-3EF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Developer Settings" id="BmL-34-QEx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FMT-9R-6QQ">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FMT-9R-6QQ" id="WcZ-dh-4Mk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -353,7 +374,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uNS-k0-BVn">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uNS-k0-BVn" id="xaS-9h-EbI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -400,6 +421,7 @@
                         <outlet property="memberIdLabel" destination="YNp-x3-kIN" id="PfC-2s-W16"/>
                         <outlet property="selectedPlatformLabel" destination="NXs-MI-Lnm" id="dpy-lK-Jg0"/>
                         <outlet property="settingsTable" destination="bor-Gm-U1f" id="2Ij-AX-fL2"/>
+                        <outlet property="signoutCell" destination="Wa6-dW-Czi" id="Zzr-Vw-MJy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1QJ-Re-5dn" userLabel="First Responder" sceneMemberID="firstResponder"/>

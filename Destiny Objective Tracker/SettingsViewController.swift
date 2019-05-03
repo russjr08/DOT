@@ -21,12 +21,14 @@ class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var accessTokenCell: UITableViewCell!
     
+    @IBOutlet weak var signoutCell: UITableViewCell!
     
     override func viewDidAppear(_ animated: Bool) {
 
         loadSettings()
         settingsTable.delegate = self
         accessTokenCell.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(accessTokenCellTapped(_:))))
+        signoutCell.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(signout(_:))))
     }
 
     func loadSettings() {
@@ -43,6 +45,26 @@ class SettingsViewController: UITableViewController {
     @objc func accessTokenCellTapped(_ recognizer: UIGestureRecognizer) {
         print("Cell clicked")
         UIPasteboard.general.string = destiny.access_token
+    }
+    
+    @objc func signout(_ recognizer: UIGestureRecognizer) {
+        
+        let alert = UIAlertController.init(title: "Sign Out?", message: "Are you sure you would like to sign out? You will be taken to the login screen, and will need to authenticate with Bungie again.", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { action in
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+            
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
+            
+            self.present(vc, animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Nevermind!", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

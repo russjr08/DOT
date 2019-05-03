@@ -426,7 +426,7 @@ public class Destiny {
 
             public var description: String {
                 switch self {
-                case .PC: return "PC"
+                case .PC: return "Battle.net"
                 case .XBOX: return "Xbox One"
                 case .PS: return "PlayStation 4"
                 }
@@ -652,6 +652,7 @@ public class Destiny {
                             print("Error occurred while trying to parse time/date")
                         }
 
+                        self.defaults.synchronize()
                         
                         seal.fulfill(())
                         break
