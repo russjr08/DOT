@@ -537,7 +537,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
             case 0:
-                return "Pursuits \(getEligibleItemsFromList().count) / 50"
+                return "Pursuits \(getEligibleItemsFromList().count) / 63"
             case 1:
                 return "Daily Challenges"
             case 2:
