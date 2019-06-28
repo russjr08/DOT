@@ -19,6 +19,7 @@ class Database {
     static var itemCache = Dictionary<Int, InventoryItemDefinition>()
     static var objectiveCache = Dictionary<Int, ObjectiveData>()
     static var milestoneCache = Dictionary<Int, MilestoneDefinition>()
+    static var vendorCache = Dictionary<Int, VendorDefinition>()
     
     
     init(with destiny: Destiny.API) {
@@ -202,6 +203,43 @@ class Database {
         return nil
     }
     
+    func decryptVendor(withHash hash: Int) throws -> VendorDefinition? {
+        
+        if let vendorData = Database.vendorCache[hash] {
+            return vendorData
+        }
+        
+        let fileManager = FileManager.default
+        let currentContentPath = Database.defaults.string(forKey: "currentContentPath") ?? "none"
+        
+        let matched = Database.matches(for: "(world_sql_content)\\w+", in: currentContentPath)
+        
+        
+        let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let dbURL = documentDirectory.appendingPathComponent("\(matched[0])")
+        
+        
+        
+        let db = try Connection(dbURL.absoluteString + "/" + matched[0] + ".content")
+        
+        
+        for item in try db.prepare("SELECT * FROM DestinyVendorDefinition WHERE id + 4294967296 = \(hash) OR id = \(hash)") {
+            do {
+                
+                let decoder = JSONDecoder()
+                let vendorData = try decoder.decode(VendorDefinition.self, from: (item[1].unsafelyUnwrapped as! String).data(using: .utf8)!)
+                
+                Database.vendorCache[hash] = vendorData
+                print("Cached Vendor Definition for \(hash) -- \(vendorData.displayProperties.name)")
+                return vendorData
+            } catch {
+                print("Error! \(error)")
+            }
+        }
+        
+        return nil
+    }
+    
     
 
 }
@@ -215,6 +253,9 @@ public class InventoryItemDefinition: Codable, CustomDebugStringConvertible {
     public var itemTypeDisplayName: String
     public var itemTypeAndTierDisplayName: String
     public var displaySource: String
+    public var itemType: Int
+    
+    public static var BOUNTY_TYPE = 26
     
     public var debugDescription: String {
         return "InventoryItemDefinition [Hash: \(hash), DisplayProperties: \(displayProperties)]"
@@ -234,6 +275,7 @@ public class InventoryItemDefinition: Codable, CustomDebugStringConvertible {
         case itemTypeDisplayName
         case itemTypeAndTierDisplayName
         case displaySource
+        case itemType
     }
     
     enum RewardsKeys: String, CodingKey {
@@ -251,6 +293,7 @@ public class InventoryItemDefinition: Codable, CustomDebugStringConvertible {
         self.itemTypeDisplayName = try item.decode(String.self, forKey: CodingKeys.itemTypeDisplayName)
         self.itemTypeAndTierDisplayName = try item.decode(String.self, forKey: CodingKeys.itemTypeAndTierDisplayName)
         self.displaySource = try item.decode(String.self, forKey: CodingKeys.displaySource)
+        self.itemType = try item.decode(Int.self, forKey: CodingKeys.itemType)
         
         do {
             if let rewards = try item.decodeIfPresent(RewardData.self, forKey: CodingKeys.rewards) {
@@ -342,6 +385,19 @@ public class RewardItemDefinition: Codable {
 public class VendorDefinition: Codable {
     public var displayProperties: Destiny.DisplayProperties
 
+    public var visible: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case displayProperties
+        case visible
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.visible = try container.decode(Bool.self, forKey: .visible)
+        self.displayProperties = try container.decode(Destiny.DisplayProperties.self, forKey: .displayProperties)
+    }
 
 }
 

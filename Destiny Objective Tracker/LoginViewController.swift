@@ -61,6 +61,7 @@ class LoginViewController: UIViewController {
     func launchMainViewController() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabController") as! UITabBarController
+        newViewController.modalPresentationStyle = .fullScreen
         self.present(newViewController, animated: true, completion: nil)
     }
     

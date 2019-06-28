@@ -78,7 +78,7 @@ public class Destiny {
         public var definition: InventoryItemDefinition?
         
         public var debugDescription: String {
-            return "Item Name: \(self.name.debugDescription), Item Hash: \(self.itemHash.debugDescription), Bucket: \(self.bucketHash.debugDescription), Instance ID: \(self.itemInstanceId), Description: \(self.description.debugDescription), Objectives: [\(self.objectives.debugDescription)]"
+            return "Item Name: \(self.name.debugDescription), Item Hash: \(self.itemHash.debugDescription), Bucket: \(self.bucketHash.debugDescription), Instance ID: \(self.itemInstanceId), Description: \(self.description.debugDescription), Objectives: [\(self.objectives.debugDescription)], Item Type: \(self.definition?.itemType)"
         }
         
         enum CodingKeys: String, CodingKey {
@@ -135,7 +135,8 @@ public class Destiny {
             let name = try displayProps.decode(String.self, forKey: .name)
             let description = try displayProps.decode(String.self, forKey: .description)
             let icon = try displayProps.decode(String.self, forKey: .icon)
-            self.displayProperties = DisplayProperties(name: name, icon: icon, description: description)
+            let subtitle = try displayProps.decode(String.self, forKey: .subtitle)
+            self.displayProperties = DisplayProperties(name: name, icon: icon, description: description, subtitle: subtitle)
             self.redacted = false
             self.hash = 0
         }
@@ -174,11 +175,13 @@ public class Destiny {
         var name: String?
         var icon: String?
         var description: String?
+        var subtitle: String?
         
         enum CodingKeys: String, CodingKey {
             case name
             case icon
             case description
+            case subtitle
         }
         
     }
@@ -451,6 +454,13 @@ public class Destiny {
     public class API {
         
         private let defaults = UserDefaults.init()
+        
+        
+        public static var API_INSTANCE: Destiny.API?
+        
+        init() {
+            Destiny.API.API_INSTANCE = self
+        }
         
         public struct MilestoneResponse: Codable {
             public var milestoneHash: Int
@@ -755,6 +765,27 @@ public class Destiny {
                         default:
                             seal.reject(DestinyError.InternalError("Failed to fetch endpoint \(endpoint)"))
                             break
+                        }
+                }
+            }
+        }
+        
+        func fetchEndpointWithRawJSONResponse(endpoint: String, parameters: Parameters?) -> Promise<DataResponse<Any>> {
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer \(access_token)",
+                "X-API-KEY": Destiny.Constants.API_KEY
+            ]
+            let url = Destiny.Constants.BASE_URL + endpoint
+            return Promise { seal in
+                
+                request(url, parameters: parameters, encoding: URLEncoding(destination: .methodDependent), headers: headers)
+                    .responseJSON { response in
+                       
+                        if(response.result.isSuccess) {
+                            seal.fulfill(response)
+                        } else {
+                            
+                            seal.reject(NSError.init(domain: "", code: 500, userInfo: ["Bungie Error": "Not Yet Implemented"]))
                         }
                 }
             }

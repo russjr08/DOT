@@ -74,7 +74,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 characterButton.setTitle("\(character.charClass.rawValue) - \(character.light)", for: .normal)
                 characterButton.sizeToFit()
                 self.character = character
-                
+                defaults.set(self.selectedCharId, forKey: "selected_char")
                 self.activityIndicator.startAnimating()
                 self.statusLabel.text = "Updating Inventory..."
                 DispatchQueue.global(qos: .background).async {
@@ -118,10 +118,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         itemTable.delegate = self
         itemTable.dataSource = self
 
-        #if !DEBUG
-        navigationController?.tabBarController?.viewControllers?.remove(at: 2)
-        self.navigationItem.rightBarButtonItem = nil
-        #endif
+//        #if !DEBUG
+//        navigationController?.tabBarController?.viewControllers?.remove(at: 2)
+//        self.navigationItem.rightBarButtonItem = nil
+//        #endif
 
 
         searchControl.searchBar.tintColor = UIColor.white
@@ -451,7 +451,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         if segue.identifier == "OpenModalTooltip" {
             if let popup = segue.destination as? ItemTooltip {
-                popup.associate(with: getEligibleItemsFromList()[sender as! Int])
+                var item = getEligibleItemsFromList()[sender as! Int]
+                popup.associate(with: item)
+                print(item)
             }
         }
 
