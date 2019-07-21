@@ -89,7 +89,7 @@ public class Destiny {
             case EXOTIC, LEGENDARY, UNCOMMON, RARE
         }
         
-        init(props props: DisplayProperties) {
+        init(props: DisplayProperties) {
             self.hash = 0
             self.redacted = false
             self.displayProperties = props

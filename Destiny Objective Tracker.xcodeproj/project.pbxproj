@@ -328,6 +328,7 @@
 				TargetAttributes = {
 					0E965F69211298DE007B80CC = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1100;
 					};
 					0E965F7D211298E0007B80CC = {
 						CreatedOnToolsVersion = 10.0;
@@ -415,25 +416,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B2FB13F2C60DDA1C78F630A7 /* [CP] Check Pods Manifest.lock */ = {
@@ -704,7 +696,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.omnicron.Destiny-Objective-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -724,7 +716,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.omnicron.Destiny-Objective-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

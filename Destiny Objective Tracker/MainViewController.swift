@@ -451,7 +451,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         if segue.identifier == "OpenModalTooltip" {
             if let popup = segue.destination as? ItemTooltip {
-                var item = getEligibleItemsFromList()[sender as! Int]
+                let item = getEligibleItemsFromList()[sender as! Int]
                 popup.associate(with: item)
                 print(item)
             }
