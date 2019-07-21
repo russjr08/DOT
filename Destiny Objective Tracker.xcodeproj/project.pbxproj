@@ -15,6 +15,7 @@
 		0E301A2B22C46DAE00BC07F9 /* VendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E301A2A22C46DAE00BC07F9 /* VendorsViewController.swift */; };
 		0E31B453214F2AD800D489C8 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31B452214F2AD800D489C8 /* IntrinsicTableView.swift */; };
 		0E33EA1A21CC368100F2AD32 /* ItemTooltipUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33EA1921CC368100F2AD32 /* ItemTooltipUI.storyboard */; };
+		0E554C3022DFFE030031ACC6 /* VendorBountyItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E554C2F22DFFE030031ACC6 /* VendorBountyItemCell.swift */; };
 		0E579A17214A36C400BA224C /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E579A16214A36C400BA224C /* ItemViewCell.swift */; };
 		0E5AD40E21EC3F65000BDB50 /* VendorsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E5AD40D21EC3F65000BDB50 /* VendorsView.storyboard */; };
 		0E78D49D214DA7170084392D /* CompletionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78D49C214DA7170084392D /* CompletionBox.swift */; };
@@ -30,6 +31,7 @@
 		0EC0077D2114A2D7004EF099 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EC0077C2114A2D7004EF099 /* Main.storyboard */; };
 		0EC007802114ACDC004EF099 /* StatusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC0077F2114ACDC004EF099 /* StatusLabel.swift */; };
 		0EC007832114B358004EF099 /* Destiny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC007822114B358004EF099 /* Destiny.swift */; };
+		0ECC0C4422CDE90C00D275D1 /* IndividualVendorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC0C4322CDE90C00D275D1 /* IndividualVendorController.swift */; };
 		0EE553E422C5F76A000FDEA4 /* VendorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE553E322C5F76A000FDEA4 /* VendorViewCell.swift */; };
 		0EF01E782153351A00BA52C7 /* RewardItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EF01E772153351A00BA52C7 /* RewardItemView.xib */; };
 		0EF01E7A2153364100BA52C7 /* RewardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF01E792153364100BA52C7 /* RewardItemView.swift */; };
@@ -68,6 +70,7 @@
 		0E31B452214F2AD800D489C8 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		0E33EA1921CC368100F2AD32 /* ItemTooltipUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemTooltipUI.storyboard; sourceTree = "<group>"; };
 		0E4959AB22618483005C6CFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E554C2F22DFFE030031ACC6 /* VendorBountyItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VendorBountyItemCell.swift; path = "../../../../../../../System/Volumes/Data/Users/russjr08/Development/iOS/Destiny Objective Tracker/Destiny Objective Tracker/UI/VendorBountyItemCell.swift"; sourceTree = "<group>"; };
 		0E579A16214A36C400BA224C /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
 		0E5AD40D21EC3F65000BDB50 /* VendorsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VendorsView.storyboard; sourceTree = "<group>"; };
 		0E78D49C214DA7170084392D /* CompletionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionBox.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		0EC0077C2114A2D7004EF099 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0EC0077F2114ACDC004EF099 /* StatusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusLabel.swift; sourceTree = "<group>"; };
 		0EC007822114B358004EF099 /* Destiny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destiny.swift; sourceTree = "<group>"; };
+		0ECC0C4322CDE90C00D275D1 /* IndividualVendorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualVendorController.swift; sourceTree = "<group>"; };
 		0EE553E322C5F76A000FDEA4 /* VendorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewCell.swift; sourceTree = "<group>"; };
 		0EF01E772153351A00BA52C7 /* RewardItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RewardItemView.xib; sourceTree = "<group>"; };
 		0EF01E792153364100BA52C7 /* RewardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardItemView.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				0E33EA1921CC368100F2AD32 /* ItemTooltipUI.storyboard */,
 				0E5AD40D21EC3F65000BDB50 /* VendorsView.storyboard */,
 				0EE553E322C5F76A000FDEA4 /* VendorViewCell.swift */,
+				0E554C2F22DFFE030031ACC6 /* VendorBountyItemCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				0EC0077C2114A2D7004EF099 /* Main.storyboard */,
 				3A42C527CC90B6D8117A6A41 /* SettingsViewController.swift */,
 				0E301A2A22C46DAE00BC07F9 /* VendorsViewController.swift */,
+				0ECC0C4322CDE90C00D275D1 /* IndividualVendorController.swift */,
 			);
 			path = "Destiny Objective Tracker";
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E579A17214A36C400BA224C /* ItemViewCell.swift in Sources */,
+				0E554C3022DFFE030031ACC6 /* VendorBountyItemCell.swift in Sources */,
 				0E78D49F214DAC170084392D /* ProgressBar.swift in Sources */,
 				0E20BCE4214D5A0D00B15091 /* ObjectiveView.swift in Sources */,
 				0E2C43E4214A170B0056C8D6 /* Database.swift in Sources */,
@@ -507,6 +514,7 @@
 				0EC007832114B358004EF099 /* Destiny.swift in Sources */,
 				0E78D49D214DA7170084392D /* CompletionBox.swift in Sources */,
 				3A42CA2F6BAF87D094522DB9 /* SettingsViewController.swift in Sources */,
+				0ECC0C4422CDE90C00D275D1 /* IndividualVendorController.swift in Sources */,
 				3A42C0ADEAEADF58AC6BBC93 /* ItemTooltip.swift in Sources */,
 				0EE553E422C5F76A000FDEA4 /* VendorViewCell.swift in Sources */,
 				3A42C4A1D3CE686407E37D87 /* Vendors.swift in Sources */,

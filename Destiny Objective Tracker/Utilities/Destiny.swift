@@ -89,6 +89,12 @@ public class Destiny {
             case EXOTIC, LEGENDARY, UNCOMMON, RARE
         }
         
+        init(props props: DisplayProperties) {
+            self.hash = 0
+            self.redacted = false
+            self.displayProperties = props
+        }
+        
         init(from json: [String: Any]) {
             self.itemHash = json["itemHash"] as? Int
             self.hash = itemHash ?? 0

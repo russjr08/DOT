@@ -31,6 +31,13 @@ class VendorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func checkVendor() {
         var vendorsList: [Int] = []
+        
+        self.vendors.removeAll()
+        
+        var alert = UIAlertController(title: "Updating Vendors", message: "Vendor update in progress...", preferredStyle: .alert)
+
+        self.present(alert, animated: true, completion: nil)
+        
         do {
             //try Destiny.Vendor.retrieveVendor(withHash: 880202832, fromCharacter: defaults.string(forKey: "selected_char") ?? "0").cauterize()
             try Destiny.Vendor.retrieveVendorList(withCharacter: defaults.string(forKey: "selected_char") ?? "0").done { vendors in
@@ -44,10 +51,22 @@ class VendorsViewController: UIViewController, UITableViewDelegate, UITableViewD
                         
                     }
                 })
+            }.done {
+                // Vendors finished updating
+                alert.dismiss(animated: true, completion: nil)
             }
         } catch {
             print("Whoops...")
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! UINavigationController
+        let vendorToSend = vendors[self.vendorTable.indexPathForSelectedRow!.row]
+
+        let vendorView = destinationVC.topViewController as! IndividualVendorController
+        vendorView.vendor = vendorToSend
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
