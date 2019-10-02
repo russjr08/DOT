@@ -15,6 +15,7 @@ class IndividualVendorController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var vendorDescription: UILabel!
     @IBOutlet weak var vendorImage: UIImageView!
     @IBOutlet weak var vendorBountyTable: UITableView!
+    @IBOutlet weak var dismissBtn: UIBarButtonItem!
     
     var vendor: Destiny.Vendor?
     
@@ -30,9 +31,32 @@ class IndividualVendorController: UIViewController, UITableViewDelegate, UITable
         self.loadVendor()
         self.vendorBountyTable.dataSource = self
         self.vendorBountyTable.delegate = self
+        
+        if #available(iOS 13, *) {
+            self.navigationItem.leftBarButtonItems = []
+        }
 
+        
     }
 
+    @IBAction func dismissDialog(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func getBounties() -> [Destiny.VendorItem] {
+        var bounties: [Destiny.VendorItem] = []
+        
+        if let vendor = self.vendor {
+            for item in vendor.sales {
+                if(item.item?.itemType == InventoryItemDefinition.BOUNTY_TYPE) {
+                    bounties.append(item)
+                }
+            }
+        }
+        
+        return bounties
+    }
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,11 +65,11 @@ class IndividualVendorController: UIViewController, UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.vendor?.sales.count ?? 0
+        return getBounties().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sale = self.vendor!.sales[indexPath.row]
+        let sale = getBounties()[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BountyItemCell", for: indexPath) as! VendorBountyItemCell
         cell.setItem(to: sale)
@@ -58,7 +82,7 @@ class IndividualVendorController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Bounties"
+        return "Available Bounties"
     }
     
     func loadVendor() {

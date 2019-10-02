@@ -46,6 +46,7 @@ class VendorsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     try Destiny.Vendor.retrieveVendor(withHash: vendor, fromCharacter: self.defaults.string(forKey: "selected_char") ?? "0").done { vendor in
                         if(vendor.enabled ?? false) {
                             self.vendors.append(vendor)
+                            self.vendors.sort { $0.hash! < $1.hash! }
                             self.vendorTable.reloadData()
                         }
                         
@@ -54,7 +55,16 @@ class VendorsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }.done {
                 // Vendors finished updating
                 alert.dismiss(animated: true, completion: nil)
-            }
+                
+                Destiny.API.init().getCharacters().done { characters in
+                    for character in characters {
+                        if character.id == (self.defaults.string(forKey: "selected_char") ?? "0") {
+                            self.title = "Vendors (\(character.charClass.rawValue))"
+                        }
+                    }
+                }.cauterize()
+                
+            }.cauterize()
         } catch {
             print("Whoops...")
         }
@@ -79,6 +89,7 @@ class VendorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VendorViewCell", for: indexPath) as! VendorViewCell
+        cell.selectionStyle = .none
         
         cell.setVendor(to: self.vendors[indexPath.row])
         

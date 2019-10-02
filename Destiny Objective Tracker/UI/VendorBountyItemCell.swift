@@ -13,6 +13,9 @@ class VendorBountyItemCell: UITableViewCell {
     @IBOutlet weak var bountyName: UILabel!
     @IBOutlet weak var bountyDescription: UILabel!
     @IBOutlet weak var bountyImage: UIImageView!
+    @IBOutlet weak var bountySaleStatus: UILabel!
+    @IBOutlet weak var saleStatusHeightCnstrnt: NSLayoutConstraint!
+    @IBOutlet weak var bountyNameTopCnstrnt: NSLayoutConstraint!
     
     var item: Destiny.VendorItem?
 
@@ -35,7 +38,17 @@ class VendorBountyItemCell: UITableViewCell {
         self.bountyName.text = item.item?.displayProperties.name
         self.bountyDescription.text = item.item?.displayProperties.description
         self.bountyImage.setAndCacheImage(withURL: "https://www.bungie.net\(item.item?.displayProperties.icon! ?? "")")
+        
+        if(item.saleStatus == Destiny.VendorItem.SaleStatus.Success) {
+            // Hide this lable and remove constraints
+            self.saleStatusHeightCnstrnt.constant = 0
+            self.bountySaleStatus.isHidden = true
+        } else {
+            self.bountySaleStatus.text = Destiny.VendorItem.getSaleStatusDescription(status: item.saleStatus!)
+            self.saleStatusHeightCnstrnt.constant = 16
+            self.bountySaleStatus.isHidden = false
 
+        }
 
         
     }

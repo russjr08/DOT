@@ -293,10 +293,13 @@ public class Destiny {
         }
         
         func updateInventory(withAPI api: Destiny.API) -> Promise<Void> {
+            
+            let buckets = [1345459588, 1585787867, 14239492, 20886954, 3448274439, 3551918588]
+            
             return Promise { seal in
                 let endpoint = "\(self.membershipType.rawValue)/Profile/\(String(describing: self.membershipId))/Character/\(self.id)/"
                 DispatchQueue.global(qos: .background).async {
-                    api.fetchEndpoint(endpoint: endpoint, parameters: Parameters(dictionaryLiteral: ("components", "200,202,102,201,301"))).done({ (response) in
+                    api.fetchEndpoint(endpoint: endpoint, parameters: Parameters(dictionaryLiteral: ("components", "200,202,102,201,205,301"))).done({ (response) in
                         print(response)
                         self.inventory.removeAll()
                         self.milestones.removeAll()
@@ -304,11 +307,14 @@ public class Destiny {
                             let inv = res["inventory"] as? [String: AnyObject],
                             let character = res["character"] as? [String: AnyObject],
                             let progressions = res["progressions"] as? [String: AnyObject],
+                            let equipment = res["equipment"] as? [String: AnyObject],
                             let progressionData = progressions["data"] as? [String: AnyObject],
                             let milestones = progressionData["milestones"] as? [String: AnyObject],
                             let characterData = character["data"] as? [String: AnyObject],
                             let data = inv["data"] as? [String: AnyObject],
-                            let items = data["items"] as? [AnyObject]
+                            let items = data["items"] as? [AnyObject],
+                            let equipmentData = equipment["data"] as? [String: AnyObject],
+                            let equipmentItems = equipmentData["items"] as? [AnyObject]
                             else {
                                 print("Something failed...")
                                 return
@@ -321,9 +327,20 @@ public class Destiny {
                             let itemData = Item(from: item as! [String: AnyObject])
                             
                             
-                            if(itemData.bucketHash == 1345459588 && !(itemData.redacted)) {
+                            if(buckets.contains(itemData.bucketHash!) && !(itemData.redacted)) {
                                 self.inventory.append(itemData)
-                                
+                            }
+
+                            
+                            // TODO: Weapons
+                        }
+                        
+                        // Currently equipped items (Armor/Weapons)
+                        for item in equipmentItems {
+                            let itemData = Item(from: item as! [String: AnyObject])
+
+                            if(buckets.contains(itemData.bucketHash!) && !(itemData.redacted)) {
+                                self.inventory.append(itemData)
                             }
                         }
                         
