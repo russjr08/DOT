@@ -17,7 +17,7 @@ import Crashlytics
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     enum ItemDisplayType: Int {
-        case pursuit = 0, weeklyChallenge, dailyChallenge, story, all
+        case pursuit = 0, weeklyChallenge, dailyChallenge, story, armor, all
     }
     
     let sectionHeaderSize: CGFloat = 25
@@ -130,7 +130,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchControl.obscuresBackgroundDuringPresentation = false
         searchControl.searchBar.placeholder = "Search Pursuits / Change Visibility"
         
-        searchControl.searchBar.scopeButtonTitles = ["All", "Pursuits", "Daily", "Weekly", "Story"]
+        searchControl.searchBar.scopeButtonTitles = ["All", "Pursuits", "Daily", "Weekly", "Story", "Armor"]
         searchControl.searchBar.selectedScopeButtonIndex = 0
         
         navigationItem.searchController = searchControl
@@ -460,7 +460,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -491,6 +491,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } else {
                     return 0
                 }
+            case 4:
+                if(scope == ItemDisplayType.armor || scope == ItemDisplayType.all) {
+                    return getAvailableArmorPieces().count
+                } else {
+                    return 0
+                }
             default:
                 return 0
             }
@@ -510,6 +516,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.setMilestone(to: getWeeklyMilestones()[indexPath.row])
         } else if indexPath.section == 3 && !getStoryMilestones().isEmpty {
             cell.setMilestone(to: getStoryMilestones()[indexPath.row])
+        } else if indexPath.section == 4 && !getAvailableArmorPieces().isEmpty {
+            cell.setItem(to: (getAvailableArmorPieces()[indexPath.row]))
         }
 
         cell.layoutIfNeeded()
@@ -546,13 +554,30 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 return "Weekly Challenges"
             case 3:
                 return "Story / Special Milestones"
+            case 4:
+                return "Armor Objectives"
             default:
                 return "Unknown"
         }
 
     }
     
-    
+    func getAvailableArmorPieces() -> [Destiny.Item] {
+        var eligible = [Destiny.Item]()
+        let armorBuckets = [1585787867, 14239492, 20886954, 3448274439, 3551918588]
+
+        if let character = characters.first(where: {$0.id == selectedCharId}) {
+            for item in (character.inventory) {
+                if(armorBuckets.contains(item.bucketHash!)) {
+                    if(item.objectives.count > 0) {
+                        eligible.append(item)
+                    }
+                }
+            }
+        }
+        
+        return eligible
+    }
     
     func getAvailablePursuitTypes() -> [String] {
         var types = [String]()
@@ -571,10 +596,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func getEligibleItemsFromList() -> [Destiny.Item] {
+        let armorBuckets = [1585787867, 14239492, 20886954, 3448274439, 3551918588]
         var eligible = [Destiny.Item]()
         if let character = characters.first(where: {$0.id == selectedCharId}) {
             for item in (character.inventory) {
                 if(item.name != nil && !item.redacted) {
+                    
+                    if(armorBuckets.contains(item.bucketHash!)) {
+                        continue // Don't add armor items if it doesn't contain an objective
+                    }
+                    
                     if(self.pursuitFilter != "") {
                         if(item.definition?.itemTypeDisplayName == self.pursuitFilter) {
                             eligible.append(item)
@@ -659,6 +690,8 @@ extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
             scope = ItemDisplayType.weeklyChallenge
         case 4:
             scope = ItemDisplayType.story
+        case 5:
+            scope = ItemDisplayType.armor
         default:
             scope = ItemDisplayType.all
         }
