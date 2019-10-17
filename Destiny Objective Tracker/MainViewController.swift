@@ -17,7 +17,7 @@ import Crashlytics
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     enum ItemDisplayType: Int {
-        case pursuit = 0, weeklyChallenge, dailyChallenge, story, armor, all
+        case pursuit = 0, weeklyChallenge, story, armor, all
     }
     
     let sectionHeaderSize: CGFloat = 25
@@ -130,7 +130,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchControl.obscuresBackgroundDuringPresentation = false
         searchControl.searchBar.placeholder = "Search Pursuits / Change Visibility"
         
-        searchControl.searchBar.scopeButtonTitles = ["All", "Pursuits", "Daily", "Weekly", "Story", "Armor"]
+        searchControl.searchBar.scopeButtonTitles = ["All", "Pursuits", "Weekly", "Story", "Armor"]
         searchControl.searchBar.selectedScopeButtonIndex = 0
         
         navigationItem.searchController = searchControl
@@ -313,7 +313,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     seal.fulfill(())
                 }.done {
                         seal.fulfill(())
-                }
+                }.cauterize()
             } else {
                 seal.fulfill(())
             }}.then{ Promise<Void> { seal in
@@ -460,7 +460,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -473,25 +473,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     return 0
                 }
             case 1:
-                if(scope == ItemDisplayType.dailyChallenge || scope == ItemDisplayType.all) {
-                    return self.character?.milestones.filter({$0.definition.milestoneType == 4}).count ?? 0
-                } else {
-                    return 0
-                }
-            case 2:
                 if(scope == ItemDisplayType.weeklyChallenge || scope == ItemDisplayType.all) {
                     return self.character?.milestones.filter({$0.definition.milestoneType == 3}).count ?? 0
                 } else {
                     return 0
                 }
                 
-            case 3:
+            case 2:
                 if(scope == ItemDisplayType.story || scope == ItemDisplayType.all) {
                     return self.character?.milestones.filter({$0.definition.milestoneType == 2 || $0.definition.milestoneType == 5}).count ?? 0
                 } else {
                     return 0
                 }
-            case 4:
+            case 3:
                 if(scope == ItemDisplayType.armor || scope == ItemDisplayType.all) {
                     return getAvailableArmorPieces().count
                 } else {
@@ -510,13 +504,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if indexPath.section == 0 {
             cell.setItem(to: getEligibleItemsFromList()[indexPath.row])
-        } else if indexPath.section == 1 && !getDailyMilestones().isEmpty {
-            cell.setMilestone(to: getDailyMilestones()[indexPath.row])
-        } else if indexPath.section == 2 && !getWeeklyMilestones().isEmpty {
+        } else if indexPath.section == 1 && !getWeeklyMilestones().isEmpty {
             cell.setMilestone(to: getWeeklyMilestones()[indexPath.row])
-        } else if indexPath.section == 3 && !getStoryMilestones().isEmpty {
+        } else if indexPath.section == 2 && !getStoryMilestones().isEmpty {
             cell.setMilestone(to: getStoryMilestones()[indexPath.row])
-        } else if indexPath.section == 4 && !getAvailableArmorPieces().isEmpty {
+        } else if indexPath.section == 3 && !getAvailableArmorPieces().isEmpty {
             cell.setItem(to: (getAvailableArmorPieces()[indexPath.row]))
         }
 
@@ -549,12 +541,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             case 0:
                 return "Pursuits \(getEligibleItemsFromList().count) / 63"
             case 1:
-                return "Daily Challenges"
-            case 2:
                 return "Weekly Challenges"
-            case 3:
+            case 2:
                 return "Story / Special Milestones"
-            case 4:
+            case 3:
                 return "Armor Objectives"
             default:
                 return "Unknown"
@@ -632,17 +622,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return eligible
     }
     
-    func getDailyMilestones() -> [Destiny.API.MilestoneResponse] {
-        var milestones = [Destiny.API.MilestoneResponse]()
-        if let character = self.character {
-            if character.milestones.count > 0 {
-                milestones.append(contentsOf: character.milestones.filter({$0.definition.milestoneType == 4}))
-                return milestones
-            }
-        }
-        return milestones
-    }
-    
     func getWeeklyMilestones() -> [Destiny.API.MilestoneResponse] {
         var milestones = [Destiny.API.MilestoneResponse]()
         if let character = self.character {
@@ -685,12 +664,10 @@ extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
         case 1:
             scope = ItemDisplayType.pursuit
         case 2:
-            scope = ItemDisplayType.dailyChallenge
-        case 3:
             scope = ItemDisplayType.weeklyChallenge
-        case 4:
+        case 3:
             scope = ItemDisplayType.story
-        case 5:
+        case 4:
             scope = ItemDisplayType.armor
         default:
             scope = ItemDisplayType.all
