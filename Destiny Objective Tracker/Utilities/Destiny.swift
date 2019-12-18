@@ -408,10 +408,59 @@ public class Destiny {
                                 self.extendedMilestones.append(milestoneResponse)
                             }
                         }
+                        
+                            
+                        /**
+                        Makes a separate call to the Profile endpoint in order to obtain current objective data for account-wide quests
+                        */
+                    
+                        let profile_endpoint = "\(self.membershipType.rawValue)/Profile/\(self.membershipId)/"
+                            api.fetchEndpoint(endpoint: profile_endpoint, parameters: Parameters(dictionaryLiteral: ("components", "301")))
+                                .done({(response) in
+                                    guard let res = response.value(forKey: "Response") as? [String: AnyObject],
+                                        let components = res["characterUninstancedItemComponents"] as? [String: AnyObject],
+                                        let character = components["\(self.id)"] as? [String: AnyObject],
+                                        let objectives = character["objectives"] as? [String: AnyObject],
+                                        let data = objectives["data"] as? [String: AnyObject]
+                                       
+                                        else {
+                                            print("Something failed...")
+                                            return
+                                    }
+                                    
+                                                                                               
+                                   for (questId, value) in data {
+                                       
+                                       if let objList = (value["objectives"] as? [AnyObject]) {
+                                        
+                                        if let itemEntryIndex = self.inventory.firstIndex(where: {$0.itemHash == Int(questId)}) {
+                                            self.inventory[itemEntryIndex].objectives.removeAll()
+                                               for objective in objList {
+                                                   let obj = Objective(withHash: objective["objectiveHash"] as! Int)
+                                                   obj.progress = objective["progress"] as? Int ?? 0
+                                                   obj.completionValue = objective["completionValue"] as? Int ?? 0
+                                                   obj.complete = objective["complete"] as? Bool ?? false
+                                                   obj.visible = objective["visible"] as? Bool
+                                                   self.inventory[itemEntryIndex].objectives.append(obj)
+                                               }
+                                               
+                                               
+                                           }
+                                       }
+                                   }
+                                    
+                                seal.fulfill(())
+
+                                    
+                                }).catch({ (error) in
+                                    print("Error updating account-wide quests")
+                                    print(error)
+                                })
+                        
+                        
 
                         print("Done retrieving milestones!")
 
-                        seal.fulfill(())
                     }).cauterize()
                 }
                 
