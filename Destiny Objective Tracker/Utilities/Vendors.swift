@@ -79,7 +79,7 @@ extension Destiny {
                         }
                         
                         seal.fulfill(vendorList)
-                    }
+                    }.cauterize()
                 } else {
                     seal.reject(NSError(domain:"VendorListFailedToRetrieve", code:400, userInfo:nil))
 

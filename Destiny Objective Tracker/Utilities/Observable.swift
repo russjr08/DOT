@@ -17,12 +17,12 @@ class Observable<T>{
     
     var observableProperty:T?{
         willSet(newValue){
-            for (identifier,observer) in observers{
+            for (_,observer) in observers{
                 observer.pre(observableProperty,newValue)
             }
         }
         didSet{
-            for (identifier,observer) in observers{
+            for (_,observer) in observers{
                 observer.post(oldValue,observableProperty)
             }
         }

@@ -118,7 +118,7 @@ class Database {
                 let invItem = try decoder.decode(InventoryItemDefinition.self, from: (item[1].unsafelyUnwrapped as! String).data(using: .utf8)!)
                 
                 itemCache[hash] = invItem
-                print("Cached item definition for \(hash) -- \(invItem.displayProperties.name)")
+                print("Cached item definition for \(hash) -- \(String(describing: invItem.displayProperties.name))")
                 return invItem
             } catch {
                 print("Error: \(error.localizedDescription)")
@@ -156,7 +156,7 @@ class Database {
                 let objData = try decoder.decode(ObjectiveData.self, from: (item[1].unsafelyUnwrapped as! String).data(using: .utf8)!)
                 
                 Database.objectiveCache[hash] = objData
-                print("Cached Objective Definition for \(hash) -- \(objData.displayProperties.description)")
+                print("Cached Objective Definition for \(hash) -- \(String(describing: objData.displayProperties.description))")
                 return objData
             } catch {
                 print("Error!")
@@ -193,7 +193,7 @@ class Database {
                 let milestoneData = try decoder.decode(MilestoneDefinition.self, from: (item[1].unsafelyUnwrapped as! String).data(using: .utf8)!)
                 
                 Database.milestoneCache[hash] = milestoneData
-                print("Cached Milestone Definition for \(hash) -- \(milestoneData.displayProperties.name)")
+                print("Cached Milestone Definition for \(hash) -- \(String(describing: milestoneData.displayProperties.name))")
                 return milestoneData
             } catch {
                 print("Error! \(error)")
@@ -230,7 +230,7 @@ class Database {
                 let vendorData = try decoder.decode(VendorDefinition.self, from: (item[1].unsafelyUnwrapped as! String).data(using: .utf8)!)
                 
                 Database.vendorCache[hash] = vendorData
-                print("Cached Vendor Definition for \(hash) -- \(vendorData.displayProperties.name)")
+                print("Cached Vendor Definition for \(hash) -- \(String(describing: vendorData.displayProperties.name))")
                 return vendorData
             } catch {
                 print("Error! \(error)")

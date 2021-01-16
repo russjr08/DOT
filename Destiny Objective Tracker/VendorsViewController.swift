@@ -34,7 +34,7 @@ class VendorsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.vendors.removeAll()
         
-        var alert = UIAlertController(title: "Updating Vendors", message: "Vendor update in progress...", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Updating Vendors", message: "Vendor update in progress...", preferredStyle: .alert)
 
         self.present(alert, animated: true, completion: nil)
         
@@ -50,7 +50,7 @@ class VendorsViewController: UIViewController, UITableViewDelegate, UITableViewD
                             self.vendorTable.reloadData()
                         }
                         
-                    }
+                    }.cauterize()
                 })
             }.done {
                 // Vendors finished updating

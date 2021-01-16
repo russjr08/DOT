@@ -78,7 +78,7 @@ public class Destiny {
         public var definition: InventoryItemDefinition?
         
         public var debugDescription: String {
-            return "Item Name: \(self.name.debugDescription), Item Hash: \(self.itemHash.debugDescription), Bucket: \(self.bucketHash.debugDescription), Instance ID: \(self.itemInstanceId), Description: \(self.description.debugDescription), Objectives: [\(self.objectives.debugDescription)], Item Type: \(self.definition?.itemType)"
+            return "Item Name: \(self.name.debugDescription), Item Hash: \(self.itemHash.debugDescription), Bucket: \(self.bucketHash.debugDescription), Instance ID: \(String(describing: self.itemInstanceId)), Description: \(self.description.debugDescription), Objectives: [\(self.objectives.debugDescription)], Item Type: \(String(describing: self.definition?.itemType))"
         }
         
         enum CodingKeys: String, CodingKey {
@@ -203,7 +203,7 @@ public class Destiny {
         
         
         override public var debugDescription: String {
-            return "Objective [Name: \(data?.displayProperties.name), Description: \(data?.progressDescription)]"
+            return "Objective [Name: \(data?.displayProperties.name ?? "<Objective Name>"), Description: \(data?.progressDescription ?? "<Objective Description>")]"
         }
         
         public required init(from decoder: Decoder) throws {
@@ -393,7 +393,7 @@ public class Destiny {
                             }
                             if milestoneResponse.definition.showInMilestones {
                                 self.milestones.append(milestoneResponse)
-                                print("Added milestone to character: \(milestoneResponse.definition.displayProperties.name?.description) -- \(milestoneResponse.definition.hash.description)")
+                                print("Added milestone to character: \(String(describing: milestoneResponse.definition.displayProperties.name?.description)) -- \(milestoneResponse.definition.hash.description)")
                             }
 
                             if(milestoneResponse.milestoneType == 2) {
@@ -729,14 +729,13 @@ public class Destiny {
                         self.defaults.set(response.object(forKey: "access_token"), forKey: "access_token")
                         self.defaults.set(response.object(forKey: "refresh_token"), forKey: "refresh_token")
                         self.defaults.set(response.object(forKey: "membership_id"), forKey: "membership_id")
-                        do {
-                            self.defaults.set(try Date.init(timeIntervalSinceNow: TimeInterval.init(Double.init(response.object(forKey: "expires_in") as! Int64))), forKey: "access_token_expiration")
-                            self.defaults.set(try Date.init(timeIntervalSinceNow: TimeInterval.init(Double.init(response.object(forKey: "refresh_expires_in") as! Int64))), forKey: "refresh_token_expiration")
-                        } catch {
-                            print("Error occurred while trying to parse time/date")
-                        }
+                        
+                        self.defaults.set(Date.init(timeIntervalSinceNow: TimeInterval.init(Double.init(response.object(forKey: "expires_in") as! Int64))), forKey: "access_token_expiration")
+                        self.defaults.set(Date.init(timeIntervalSinceNow: TimeInterval.init(Double.init(response.object(forKey: "refresh_expires_in") as! Int64))), forKey: "refresh_token_expiration")
+                        
 
                         self.defaults.synchronize()
+                        
                         
                         seal.fulfill(())
                         break
@@ -748,6 +747,8 @@ public class Destiny {
                         break
                     }
                 }
+            
+                
             }
             
         }
@@ -914,7 +915,7 @@ public class Destiny {
                     seal.fulfill(characters)
                 }.catch({ (error) in
                     switch error {
-                    case Destiny.DestinyError.InternalError(let errorMessage):
+                    case Destiny.DestinyError.InternalError( _):
                         seal.reject(error)
                     default:
                         seal.reject(error)
@@ -934,7 +935,7 @@ public class Destiny {
                         if let membershipList = json["Response"]["destinyMemberships"].arrayObject {
                             print(membershipList)
 
-                            for(key, subJSON) in json["Response"]["destinyMemberships"] {
+                            for(_, subJSON) in json["Response"]["destinyMemberships"] {
 
                                 guard let iconPath = subJSON["iconPath"].string,
                                       let id = subJSON["membershipId"].string,
@@ -958,7 +959,7 @@ public class Destiny {
                         print("Failed to fetch list of memberships!")
                     }
 
-                })
+                }).cauterize()
             }
 
         }

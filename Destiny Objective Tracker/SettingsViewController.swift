@@ -85,7 +85,7 @@ class SettingsViewController: UITableViewController {
                     }
 
                     self.present(alert, animated: true)
-                }
+                }.cauterize()
                 break
             default:
                 break
