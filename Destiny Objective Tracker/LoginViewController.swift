@@ -12,7 +12,7 @@ import SafariServices
 
 class LoginViewController: UIViewController {
     
-    var sfAuthSession: SFAuthenticationSession?
+    var sfAuthSession: ASWebAuthenticationSession?
     let defaults = UserDefaults.init()
 
 
@@ -29,7 +29,15 @@ class LoginViewController: UIViewController {
     @IBAction func loginBtnClicked(_ sender: Any) {
         let oauth_url = "https://www.bungie.net/en/oauth/authorize?client_id=24297&response_type=code"
 
-        sfAuthSession = SFAuthenticationSession.init(url: URL(string: oauth_url)!, callbackURLScheme: "DestinyObjTracker://oauth-callback", completionHandler: self.acceptToken)
+        sfAuthSession = ASWebAuthenticationSession.init(url: URL(string: oauth_url)!, callbackURLScheme: "DestinyObjTracker") { callbackURL, error in
+            self.acceptToken(callBack: callbackURL, error: error)
+        }
+        
+        if #available(iOS 13.0, *) {
+            sfAuthSession?.presentationContextProvider = self
+        } else {
+            // Fallback on earlier versions
+        }
         
         self.sfAuthSession?.start()
         
@@ -68,3 +76,8 @@ class LoginViewController: UIViewController {
 
 }
 
+extension UIViewController: ASWebAuthenticationPresentationContextProviding {
+    public func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return view.window!
+    }
+}
