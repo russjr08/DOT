@@ -11,11 +11,11 @@
 		0E20BCDE214CA8E400B15091 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E20BCDD214CA8E400B15091 /* Extensions.swift */; };
 		0E20BCE2214D59E300B15091 /* ObjectiveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E20BCE1214D59E300B15091 /* ObjectiveView.xib */; };
 		0E20BCE4214D5A0D00B15091 /* ObjectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E20BCE3214D5A0D00B15091 /* ObjectiveView.swift */; };
+		0E2A898925B2DCE40094A3F3 /* VendorBountyItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A898825B2DCE40094A3F3 /* VendorBountyItemCell.swift */; };
 		0E2C43E4214A170B0056C8D6 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C43E3214A170B0056C8D6 /* Database.swift */; };
 		0E301A2B22C46DAE00BC07F9 /* VendorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E301A2A22C46DAE00BC07F9 /* VendorsViewController.swift */; };
 		0E31B453214F2AD800D489C8 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E31B452214F2AD800D489C8 /* IntrinsicTableView.swift */; };
 		0E33EA1A21CC368100F2AD32 /* ItemTooltipUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33EA1921CC368100F2AD32 /* ItemTooltipUI.storyboard */; };
-		0E554C3022DFFE030031ACC6 /* VendorBountyItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E554C2F22DFFE030031ACC6 /* VendorBountyItemCell.swift */; };
 		0E579A17214A36C400BA224C /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E579A16214A36C400BA224C /* ItemViewCell.swift */; };
 		0E5AD40E21EC3F65000BDB50 /* VendorsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E5AD40D21EC3F65000BDB50 /* VendorsView.storyboard */; };
 		0E78D49D214DA7170084392D /* CompletionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78D49C214DA7170084392D /* CompletionBox.swift */; };
@@ -35,12 +35,12 @@
 		0EE553E422C5F76A000FDEA4 /* VendorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE553E322C5F76A000FDEA4 /* VendorViewCell.swift */; };
 		0EF01E782153351A00BA52C7 /* RewardItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EF01E772153351A00BA52C7 /* RewardItemView.xib */; };
 		0EF01E7A2153364100BA52C7 /* RewardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF01E792153364100BA52C7 /* RewardItemView.swift */; };
-		327C895C5C2DD75D779E09C4 /* Pods_Destiny_Objective_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 760529F1982367EFFC27EE48 /* Pods_Destiny_Objective_TrackerTests.framework */; };
-		32DEFFE5372A10CB73212251 /* Pods_Destiny_Objective_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBAB29E749EDBFB296D2D2D5 /* Pods_Destiny_Objective_Tracker.framework */; };
 		3A42C0ADEAEADF58AC6BBC93 /* ItemTooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42C4214D849386BAB5E3D3 /* ItemTooltip.swift */; };
 		3A42C4A1D3CE686407E37D87 /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42C2AF2C7D2C5BCA846221 /* Vendors.swift */; };
 		3A42CA2F6BAF87D094522DB9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A42C527CC90B6D8117A6A41 /* SettingsViewController.swift */; };
-		64355456C9A0185695565063 /* Pods_Destiny_Objective_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7E0400DFAC78E4AF666802 /* Pods_Destiny_Objective_TrackerUITests.framework */; };
+		86819CCB31AC08F2A0034B5F /* Pods_Destiny_Objective_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA3829515F6DC2A79244E13 /* Pods_Destiny_Objective_TrackerUITests.framework */; };
+		9D817F8C88ACA8434626BA4A /* Pods_Destiny_Objective_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22AD6D91D13B00C0BBED52B /* Pods_Destiny_Objective_Tracker.framework */; };
+		CB4F9AED10E4376E19D8E5C3 /* Pods_Destiny_Objective_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B788AAA667B9A197EE21C3 /* Pods_Destiny_Objective_TrackerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +65,12 @@
 		0E20BCDD214CA8E400B15091 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0E20BCE1214D59E300B15091 /* ObjectiveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObjectiveView.xib; sourceTree = "<group>"; };
 		0E20BCE3214D5A0D00B15091 /* ObjectiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveView.swift; sourceTree = "<group>"; };
+		0E2A898825B2DCE40094A3F3 /* VendorBountyItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorBountyItemCell.swift; sourceTree = "<group>"; };
 		0E2C43E3214A170B0056C8D6 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		0E301A2A22C46DAE00BC07F9 /* VendorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorsViewController.swift; sourceTree = "<group>"; };
 		0E31B452214F2AD800D489C8 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		0E33EA1921CC368100F2AD32 /* ItemTooltipUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemTooltipUI.storyboard; sourceTree = "<group>"; };
 		0E4959AB22618483005C6CFD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E554C2F22DFFE030031ACC6 /* VendorBountyItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VendorBountyItemCell.swift; path = "../../../../../../../System/Volumes/Data/Users/russjr08/Development/iOS/Destiny Objective Tracker/Destiny Objective Tracker/UI/VendorBountyItemCell.swift"; sourceTree = "<group>"; };
 		0E579A16214A36C400BA224C /* ItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
 		0E5AD40D21EC3F65000BDB50 /* VendorsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VendorsView.storyboard; sourceTree = "<group>"; };
 		0E78D49C214DA7170084392D /* CompletionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionBox.swift; sourceTree = "<group>"; };
@@ -96,18 +96,18 @@
 		0EE553E322C5F76A000FDEA4 /* VendorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewCell.swift; sourceTree = "<group>"; };
 		0EF01E772153351A00BA52C7 /* RewardItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RewardItemView.xib; sourceTree = "<group>"; };
 		0EF01E792153364100BA52C7 /* RewardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardItemView.swift; sourceTree = "<group>"; };
-		25D3D0151CA23F93249B2954 /* Pods-Destiny Objective TrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective TrackerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny Objective TrackerUITests/Pods-Destiny Objective TrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		34699D029C10D0835A8E92AC /* Pods-Destiny Objective TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective TrackerTests.release.xcconfig"; path = "Target Support Files/Pods-Destiny Objective TrackerTests/Pods-Destiny Objective TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		3A42C2AF2C7D2C5BCA846221 /* Vendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendors.swift; sourceTree = "<group>"; };
 		3A42C4214D849386BAB5E3D3 /* ItemTooltip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTooltip.swift; sourceTree = "<group>"; };
 		3A42C527CC90B6D8117A6A41 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		6E65C2059C465F35AAD11DB2 /* Pods-Destiny Objective TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny Objective TrackerTests/Pods-Destiny Objective TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6F7E0400DFAC78E4AF666802 /* Pods_Destiny_Objective_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Destiny_Objective_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		760529F1982367EFFC27EE48 /* Pods_Destiny_Objective_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Destiny_Objective_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A84B309068AA88E70863E6CD /* Pods-Destiny Objective TrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective TrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny Objective TrackerUITests/Pods-Destiny Objective TrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E35285388C8D2FA1A397AD3F /* Pods-Destiny Objective Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker.release.xcconfig"; sourceTree = "<group>"; };
-		EE210DB0903EF77A343A6E3C /* Pods-Destiny Objective TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective TrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny Objective TrackerTests/Pods-Destiny Objective TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
-		F5BC30F8FA65E32D3CE1D407 /* Pods-Destiny Objective Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker.debug.xcconfig"; sourceTree = "<group>"; };
-		FBAB29E749EDBFB296D2D2D5 /* Pods_Destiny_Objective_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Destiny_Objective_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA3829515F6DC2A79244E13 /* Pods_Destiny_Objective_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Destiny_Objective_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52540DD9B9B446A205D6C02F /* Pods-Destiny Objective TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective TrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-Destiny Objective TrackerTests/Pods-Destiny Objective TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		53B788AAA667B9A197EE21C3 /* Pods_Destiny_Objective_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Destiny_Objective_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7931F925DF6A2B031BFB8A48 /* Pods-Destiny Objective Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		835052018E8866DC4CDC44EF /* Pods-Destiny Objective Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective Tracker.release.xcconfig"; path = "Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		B35989A3CB4022DF9DB42BB8 /* Pods-Destiny Objective TrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective TrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Destiny Objective TrackerUITests/Pods-Destiny Objective TrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5E3C2F32DC4F93F7C2FD752 /* Pods-Destiny Objective TrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Destiny Objective TrackerUITests.release.xcconfig"; path = "Target Support Files/Pods-Destiny Objective TrackerUITests/Pods-Destiny Objective TrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F22AD6D91D13B00C0BBED52B /* Pods_Destiny_Objective_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Destiny_Objective_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32DEFFE5372A10CB73212251 /* Pods_Destiny_Objective_Tracker.framework in Frameworks */,
+				9D817F8C88ACA8434626BA4A /* Pods_Destiny_Objective_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				327C895C5C2DD75D779E09C4 /* Pods_Destiny_Objective_TrackerTests.framework in Frameworks */,
+				CB4F9AED10E4376E19D8E5C3 /* Pods_Destiny_Objective_TrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,13 +131,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64355456C9A0185695565063 /* Pods_Destiny_Objective_TrackerUITests.framework in Frameworks */,
+				86819CCB31AC08F2A0034B5F /* Pods_Destiny_Objective_TrackerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05A44CB1654A220D301CDF0D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7931F925DF6A2B031BFB8A48 /* Pods-Destiny Objective Tracker.debug.xcconfig */,
+				835052018E8866DC4CDC44EF /* Pods-Destiny Objective Tracker.release.xcconfig */,
+				52540DD9B9B446A205D6C02F /* Pods-Destiny Objective TrackerTests.debug.xcconfig */,
+				34699D029C10D0835A8E92AC /* Pods-Destiny Objective TrackerTests.release.xcconfig */,
+				B35989A3CB4022DF9DB42BB8 /* Pods-Destiny Objective TrackerUITests.debug.xcconfig */,
+				B5E3C2F32DC4F93F7C2FD752 /* Pods-Destiny Objective TrackerUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		0E579A15214A369500BA224C /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +166,7 @@
 				0E33EA1921CC368100F2AD32 /* ItemTooltipUI.storyboard */,
 				0E5AD40D21EC3F65000BDB50 /* VendorsView.storyboard */,
 				0EE553E322C5F76A000FDEA4 /* VendorViewCell.swift */,
-				0E554C2F22DFFE030031ACC6 /* VendorBountyItemCell.swift */,
+				0E2A898825B2DCE40094A3F3 /* VendorBountyItemCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -165,8 +178,8 @@
 				0E965F81211298E0007B80CC /* Destiny Objective TrackerTests */,
 				0E965F8C211298E0007B80CC /* Destiny Objective TrackerUITests */,
 				0E965F6B211298DE007B80CC /* Products */,
-				DE6B790668F52AA2B8459C59 /* Pods */,
 				CD2278DB0B140BB7439B1BD9 /* Frameworks */,
+				05A44CB1654A220D301CDF0D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,24 +248,11 @@
 			isa = PBXGroup;
 			children = (
 				0E4959AB22618483005C6CFD /* Alamofire.framework */,
-				FBAB29E749EDBFB296D2D2D5 /* Pods_Destiny_Objective_Tracker.framework */,
-				760529F1982367EFFC27EE48 /* Pods_Destiny_Objective_TrackerTests.framework */,
-				6F7E0400DFAC78E4AF666802 /* Pods_Destiny_Objective_TrackerUITests.framework */,
+				F22AD6D91D13B00C0BBED52B /* Pods_Destiny_Objective_Tracker.framework */,
+				53B788AAA667B9A197EE21C3 /* Pods_Destiny_Objective_TrackerTests.framework */,
+				4BA3829515F6DC2A79244E13 /* Pods_Destiny_Objective_TrackerUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DE6B790668F52AA2B8459C59 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F5BC30F8FA65E32D3CE1D407 /* Pods-Destiny Objective Tracker.debug.xcconfig */,
-				E35285388C8D2FA1A397AD3F /* Pods-Destiny Objective Tracker.release.xcconfig */,
-				6E65C2059C465F35AAD11DB2 /* Pods-Destiny Objective TrackerTests.debug.xcconfig */,
-				EE210DB0903EF77A343A6E3C /* Pods-Destiny Objective TrackerTests.release.xcconfig */,
-				25D3D0151CA23F93249B2954 /* Pods-Destiny Objective TrackerUITests.debug.xcconfig */,
-				A84B309068AA88E70863E6CD /* Pods-Destiny Objective TrackerUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,12 +262,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E965F92211298E0007B80CC /* Build configuration list for PBXNativeTarget "Destiny Objective Tracker" */;
 			buildPhases = (
-				B2FB13F2C60DDA1C78F630A7 /* [CP] Check Pods Manifest.lock */,
+				FC07C66AE4188C1A3EE7F9E9 /* [CP] Check Pods Manifest.lock */,
 				0E965F66211298DE007B80CC /* Sources */,
 				0E965F67211298DE007B80CC /* Frameworks */,
 				0E965F68211298DE007B80CC /* Resources */,
-				9F496109A03095BAB1977189 /* [CP] Embed Pods Frameworks */,
 				0E4959AD22618787005C6CFD /* ShellScript */,
+				1313994CA90AA70882855D26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,7 +282,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E965F95211298E0007B80CC /* Build configuration list for PBXNativeTarget "Destiny Objective TrackerTests" */;
 			buildPhases = (
-				CCFDADF7543D338431D1678A /* [CP] Check Pods Manifest.lock */,
+				6130041DC326A4361F6C1891 /* [CP] Check Pods Manifest.lock */,
 				0E965F7A211298E0007B80CC /* Sources */,
 				0E965F7B211298E0007B80CC /* Frameworks */,
 				0E965F7C211298E0007B80CC /* Resources */,
@@ -301,7 +301,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E965F98211298E0007B80CC /* Build configuration list for PBXNativeTarget "Destiny Objective TrackerUITests" */;
 			buildPhases = (
-				BD5C4A1159F2CD9331014652 /* [CP] Check Pods Manifest.lock */,
+				900BE03627547E33B92A7758 /* [CP] Check Pods Manifest.lock */,
 				0E965F85211298E0007B80CC /* Sources */,
 				0E965F86211298E0007B80CC /* Frameworks */,
 				0E965F87211298E0007B80CC /* Resources */,
@@ -323,18 +323,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Russell Richardson";
 				TargetAttributes = {
 					0E965F69211298DE007B80CC = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1230;
 					};
 					0E965F7D211298E0007B80CC = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1230;
 						TestTargetID = 0E965F69211298DE007B80CC;
 					};
 					0E965F88211298E0007B80CC = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1230;
 						TestTargetID = 0E965F69211298DE007B80CC;
 					};
 				};
@@ -410,7 +413,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" a7e785b44c479e7fe75576553ba8de35d7c28cf2 d2d7d1a8ce95366eeb715fd3f442e4e3c340c2c517c3341b9806535a0389b264\n";
 		};
-		9F496109A03095BAB1977189 /* [CP] Embed Pods Frameworks */ = {
+		1313994CA90AA70882855D26 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -427,34 +430,42 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Destiny Objective Tracker/Pods-Destiny Objective Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B2FB13F2C60DDA1C78F630A7 /* [CP] Check Pods Manifest.lock */ = {
+		6130041DC326A4361F6C1891 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Destiny Objective Tracker-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Destiny Objective TrackerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BD5C4A1159F2CD9331014652 /* [CP] Check Pods Manifest.lock */ = {
+		900BE03627547E33B92A7758 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Destiny Objective TrackerUITests-checkManifestLockResult.txt",
 			);
@@ -463,18 +474,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCFDADF7543D338431D1678A /* [CP] Check Pods Manifest.lock */ = {
+		FC07C66AE4188C1A3EE7F9E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Destiny Objective TrackerTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Destiny Objective Tracker-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -489,7 +504,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E579A17214A36C400BA224C /* ItemViewCell.swift in Sources */,
-				0E554C3022DFFE030031ACC6 /* VendorBountyItemCell.swift in Sources */,
 				0E78D49F214DAC170084392D /* ProgressBar.swift in Sources */,
 				0E20BCE4214D5A0D00B15091 /* ObjectiveView.swift in Sources */,
 				0E2C43E4214A170B0056C8D6 /* Database.swift in Sources */,
@@ -501,6 +515,7 @@
 				0E965F70211298DE007B80CC /* LoginViewController.swift in Sources */,
 				0E965F6E211298DE007B80CC /* AppDelegate.swift in Sources */,
 				0E098DA92154288A001BDC3B /* Observable.swift in Sources */,
+				0E2A898925B2DCE40094A3F3 /* VendorBountyItemCell.swift in Sources */,
 				0E31B453214F2AD800D489C8 /* IntrinsicTableView.swift in Sources */,
 				0EC007832114B358004EF099 /* Destiny.swift in Sources */,
 				0E78D49D214DA7170084392D /* CompletionBox.swift in Sources */,
@@ -589,6 +604,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -651,6 +667,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -683,7 +700,7 @@
 		};
 		0E965F93211298E0007B80CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5BC30F8FA65E32D3CE1D407 /* Pods-Destiny Objective Tracker.debug.xcconfig */;
+			baseConfigurationReference = 7931F925DF6A2B031BFB8A48 /* Pods-Destiny Objective Tracker.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -700,14 +717,14 @@
 				LD_VERIFY_BITCODE = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.omnicron.Destiny-Objective-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		0E965F94211298E0007B80CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E35285388C8D2FA1A397AD3F /* Pods-Destiny Objective Tracker.release.xcconfig */;
+			baseConfigurationReference = 835052018E8866DC4CDC44EF /* Pods-Destiny Objective Tracker.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -723,18 +740,19 @@
 				LD_VERIFY_BITCODE = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.omnicron.Destiny-Objective-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		0E965F96211298E0007B80CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E65C2059C465F35AAD11DB2 /* Pods-Destiny Objective TrackerTests.debug.xcconfig */;
+			baseConfigurationReference = 52540DD9B9B446A205D6C02F /* Pods-Destiny Objective TrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H5B6QMJ25Y;
 				INFOPLIST_FILE = "Destiny Objective TrackerTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -743,7 +761,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.omnicron.Destiny-Objective-TrackerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Destiny Objective Tracker.app/Destiny Objective Tracker";
 			};
@@ -751,11 +769,12 @@
 		};
 		0E965F97211298E0007B80CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE210DB0903EF77A343A6E3C /* Pods-Destiny Objective TrackerTests.release.xcconfig */;
+			baseConfigurationReference = 34699D029C10D0835A8E92AC /* Pods-Destiny Objective TrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H5B6QMJ25Y;
 				INFOPLIST_FILE = "Destiny Objective TrackerTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -764,7 +783,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.omnicron.Destiny-Objective-TrackerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Destiny Objective Tracker.app/Destiny Objective Tracker";
 			};
@@ -772,10 +791,11 @@
 		};
 		0E965F99211298E0007B80CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25D3D0151CA23F93249B2954 /* Pods-Destiny Objective TrackerUITests.debug.xcconfig */;
+			baseConfigurationReference = B35989A3CB4022DF9DB42BB8 /* Pods-Destiny Objective TrackerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H5B6QMJ25Y;
 				INFOPLIST_FILE = "Destiny Objective TrackerUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -784,7 +804,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.omnicron.Destiny-Objective-TrackerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Destiny Objective Tracker";
 			};
@@ -792,10 +812,11 @@
 		};
 		0E965F9A211298E0007B80CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A84B309068AA88E70863E6CD /* Pods-Destiny Objective TrackerUITests.release.xcconfig */;
+			baseConfigurationReference = B5E3C2F32DC4F93F7C2FD752 /* Pods-Destiny Objective TrackerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H5B6QMJ25Y;
 				INFOPLIST_FILE = "Destiny Objective TrackerUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -804,7 +825,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "xyz.omnicron.Destiny-Objective-TrackerUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Destiny Objective Tracker";
 			};

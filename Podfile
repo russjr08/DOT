@@ -6,7 +6,7 @@ target 'Destiny Objective Tracker' do
 
   # Pods for Destiny Objective Tracker
   pod 'SQLite.swift', '~> 0.11.5'
-  pod 'Alamofire', '~> 4.7'
+  pod 'Alamofire', '~> 4.9.1'
   pod 'Zip', '~> 1.1'
   pod 'PromiseKit', '~> 6.0'
   pod 'PromiseKit/Alamofire', '~> 6.0'

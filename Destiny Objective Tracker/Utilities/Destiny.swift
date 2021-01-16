@@ -497,13 +497,14 @@ public class Destiny {
     public class DestinyMembership {
 
         public enum MembershipType: Int, CustomStringConvertible {
-            case PC = 3, XBOX = 1, PS = 2, LEGACY_BATTLENET = 4
+            case PC = 3, XBOX = 1, PS = 2, LEGACY_BATTLENET = 4, TWITCH = 5
 
             public var description: String {
                 switch self {
                 case .PC: return "Steam"
                 case .XBOX: return "Xbox One"
                 case .PS: return "PlayStation 4"
+                case .TWITCH: return "Twitch"
                 case .LEGACY_BATTLENET: return "(Legacy) Battle.net"
                 }
             }
