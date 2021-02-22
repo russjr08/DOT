@@ -299,6 +299,8 @@ class ItemViewCell: UITableViewCell {
 
         objectives.translatesAutoresizingMaskIntoConstraints = false
         rewards.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = UIColor.systemBackground
+        self.contentView.backgroundColor = UIColor.systemBackground
     }
 
         

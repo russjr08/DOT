@@ -30,7 +30,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var itemTable: UITableView!
     
     
-    let activityIndicator = UIActivityIndicatorView(style: .gray)
+    let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     let searchControl = UISearchController(searchResultsController: nil)
     
     
@@ -117,6 +117,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         itemTable.estimatedRowHeight = 120
         itemTable.delegate = self
         itemTable.dataSource = self
+        
+        itemTable.backgroundColor = UIColor.systemBackground
 
 //        #if !DEBUG
 //        navigationController?.tabBarController?.viewControllers?.remove(at: 2)
